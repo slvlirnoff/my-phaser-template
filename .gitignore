@@ -1,0 +1,14 @@
+.*
+*.log
+*.sw?
+Thumbs.db
+
+build
+node_modules
+bower_components
+
+# Always include these files
+!.git*
+!.bowerrc
+!.jshintrc
+!.editorconfig

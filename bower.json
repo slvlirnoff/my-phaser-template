@@ -1,0 +1,19 @@
+{
+  "name": "my-phaser-boilerplate",
+  "version": "0.1.0",
+  "description": "My soon to become awesome game!",
+  "authors": [
+    "Me <me@example.com>"
+  ],
+  "dependencies": {
+    "localforage": "latest",
+    "phaser": "latest",
+    "traceur-runtime": "latest"
+  },
+  "overrides": {
+    "phaser": {
+      "main": "build/custom/phaser-arcade-physics.js"
+    }
+  },
+  "private": true
+}
