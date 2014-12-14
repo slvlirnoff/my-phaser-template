@@ -30,6 +30,7 @@
   },
   "scripts": {
     "build": "gulp build",
+    "clean": "gulp clean",
     "start": "gulp default",
     "postinstall": "bower install"
   },
