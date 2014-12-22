@@ -41,7 +41,7 @@ class Game extends Phaser.State {
 
     // Place the rotating logo wherever the user clicks/touches the game
     // canvas.
-    this.input.onDown.add(this.placeLogo, this);
+    this.input.onUp.add(this.placeLogo, this);
   }
 
   update () {
