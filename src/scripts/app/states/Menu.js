@@ -12,7 +12,11 @@ class Menu extends Phaser.State {
     // Give a gray shade to the background, show the title logo and the "Start"
     // button.
     this.stage.backgroundColor = 0x333333;
-    this.add.image(0, 153, 'title');
+
+    this.add.tween(this.add.image(0, 153, 'title'))
+      .from({ y: -200 }, 2000, Phaser.Easing.Elastic.Out)
+      .start();
+
     this.add.existing(
       this.makeButton(240, 544, 'button-start', this.startGame, this));
   }
