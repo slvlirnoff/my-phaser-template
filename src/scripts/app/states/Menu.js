@@ -33,13 +33,6 @@ class Menu extends Phaser.State {
     return button;
   }
 
-  toggleAudio (toggleAudioButton) {
-    var face =
-      this.game.options.toggleAudio() ? 'button-audio' : 'button-mute';
-
-    toggleAudioButton.setFrames(face, face);
-  }
-
   startGame () {
     this.state.start('Game');
   }
