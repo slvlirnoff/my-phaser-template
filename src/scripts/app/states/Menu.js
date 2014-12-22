@@ -18,6 +18,7 @@ class Menu extends Phaser.State {
       .start();
 
     this.add.existing(this.makeStartButton(240, 544));
+    this.add.existing(this.makeCreditsButton(352, 544));
   }
 
   // --------------------------------------------------------------------------
@@ -36,8 +37,16 @@ class Menu extends Phaser.State {
     return this.makeButton(x, y, 'button-start', this.startGame);
   }
 
+  makeCreditsButton (x, y) {
+    return this.makeButton(x, y, 'button-menu', this.showCredits);
+  }
+
   startGame () {
     this.state.start('Game');
+  }
+
+  showCredits () {
+    this.state.start('Credits');
   }
 
 }
