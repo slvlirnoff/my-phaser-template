@@ -23,9 +23,9 @@ class Menu extends Phaser.State {
 
   // --------------------------------------------------------------------------
 
-  makeButton (x, y, face, callback = null, context = null) {
+  makeButton (x, y, face, callback = null) {
     var button = this.make.button(
-      x, y, 'buttons', callback, context, face, face);
+      x, y, 'buttons', callback, this, face, face);
 
     button.anchor.set(0.5);
     button.input.useHandCursor = true;
