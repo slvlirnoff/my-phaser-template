@@ -17,8 +17,7 @@ class Menu extends Phaser.State {
       .from({ y: -200 }, 2000, Phaser.Easing.Elastic.Out)
       .start();
 
-    this.add.existing(
-      this.makeButton(240, 544, 'button-start', this.startGame, this));
+    this.add.existing(this.makeStartButton(240, 544));
   }
 
   // --------------------------------------------------------------------------
@@ -31,6 +30,10 @@ class Menu extends Phaser.State {
     button.input.useHandCursor = true;
 
     return button;
+  }
+
+  makeStartButton (x, y) {
+    return this.makeButton(x, y, 'button-start', this.startGame);
   }
 
   startGame () {
