@@ -32,9 +32,9 @@ Planned Updates
 *   Handle game settings, like sound volume etc.
 *   Use localForage to save game progress and settings.
 
+<!-- 
 ### Fixes and Improvements ####################################################
-
-*   Perharps merge `Boot` state and `Preload` state entities.
+-->
 
 
 <!--  --------------------------------------------------------------------- -->
