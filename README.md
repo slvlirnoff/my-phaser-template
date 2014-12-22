@@ -2,7 +2,7 @@ My Phaser Template
 ===============================================================================
 
 NOTICE: This project is considered in an early development stage and is not
-suitable for general usage yet.
+suitable for general use yet.
 
 A project template for [Phaser][phsr] games, featuring Traceur Compiler and
 localForage.
