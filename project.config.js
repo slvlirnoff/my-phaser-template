@@ -6,8 +6,9 @@ module.exports = {
     'static': 'static',
     'temp'  : '.tmp',
 
-    get less    () { return this[ 'src' ] + '/styles/*.less'; },
-    get scripts () { return this[ 'src' ] + '/scripts/**/*.js'; }
+    get less      () { return this['src'] + '/styles/*.less' },
+    get scripts   () { return this['src'] + '/scripts/**/*.js' },
+    get templates () { return this['src'] + '/index.html' }
   },
 
   'traceurOptions': {

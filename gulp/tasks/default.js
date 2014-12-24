@@ -33,9 +33,9 @@ module.exports = function (gulp, $, config) {
   });
 
   gulp.task('watch', function () {
-    gulp.watch(paths['scripts'],             [ 'traceur' ]);
-    gulp.watch(paths['less'],                [    'less' ]);
-    gulp.watch(paths['src'] + '/index.html', [    'html' ]);
+    gulp.watch(paths['scripts'],   [ 'traceur' ]);
+    gulp.watch(paths['less'],      [    'less' ]);
+    gulp.watch(paths['templates'], [    'html' ]);
   });
 
   gulp.task('default', [

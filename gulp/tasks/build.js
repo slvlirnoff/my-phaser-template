@@ -14,7 +14,7 @@ module.exports = function (gulp, $, config) {
   });
 
   gulp.task('processHtml', function () {
-    return gulp.src(paths['src'] + '/index.html')
+    return gulp.src(paths['templates'])
       .pipe(handleErrors())
       .pipe($.processhtml('index.html'))
       .pipe(gulp.dest(paths['dist']));
