@@ -16,8 +16,35 @@ anything you want.
 Besides that, take some minutes to look at the source code and see the sample
 game in action. I hope you find it useful.
 
-If something is broker or not working properly, file an issue detailing the
+If something is broken or not working properly, file an issue detailing the
 problem you found.
+
+
+Arcade Physics by default
+-------------------------------------------------------------------------------
+
+Even though this sample game doesn't include any physics-related logic, this
+template was prepared to use the Arcade Physics custom library by default. This
+is accomplished by inserting the following override hash under the `bower.json`
+package manifest:
+
+```js
+{
+  // ...
+  "overrides": {
+    "phaser": {
+      "main": "build/custom/phaser-arcade-physics.js"
+    }
+  },
+  // ...
+}
+```
+
+If you're planning to use another physics system, or don't want to use any of
+the physics systems provided by Phaser, simply change that line to include the
+custom library provided by the Phaser package. Remember that by removing the
+package override for Phaser is the same as using the standard Phaser library
+file.
 
 
 Planned Updates
