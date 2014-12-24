@@ -1,8 +1,8 @@
 {
-  "name": "my-phaser-boilerplate",
+  "name": "my-phaser-template",
   "version": "0.1.0",
   "private": true,
-  "description": "My soon to become awesome game!",
+  "description": "A Phaser project template, featuring Traceur and localForage.",
   "devDependencies": {
     "bower": "^1.3.12",
     "browser-sync": "^1.8.1",

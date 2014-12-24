@@ -1,7 +1,6 @@
 {
-  "name": "my-phaser-boilerplate",
-  "version": "0.1.0",
-  "description": "My soon to become awesome game!",
+  "name": "my-phaser-template",
+  "description": "A Phaser project template, featuring Traceur and localForage.",
   "authors": [
     "Me <me@example.com>"
   ],
