@@ -7,11 +7,15 @@
  */
 
 
-// Firstly, import the modules this class depends on. The `assets` module
-// contains data about the boot and in game assets we'll use later. Also,
-// import the custom plugins used in the game.
-import assets  from '../data/assets';
-import Storage from '../plugins/Storage';
+// Firstly, we import the modules this class depends on. The `assets` module
+// contains data about the boot and in game assets we'll need soon.
+// `defaultSettings` contains data related to the game initial configuration.
+import assets          from '../data/assets';
+import defaultSettings from '../data/defaultSettings';
+
+// Also, we import the custom plugins used by this game.
+import Storage  from '../plugins/Storage';
+import Settings from '../plugins/Settings';
 
 
 class Boot extends Phaser.State {
@@ -22,11 +26,12 @@ class Boot extends Phaser.State {
     // Point the asset loader to where all your assets live.
     this.load.baseURL = './assets/';
 
-    // As an example, here we instantiate some plugins, passing the options
-    // required, and sharing them back as properties of the game object. This
-    // way, each plugin can be accessed globally, without polluting the global
-    // environment scope.
-    this.game.storage = this.game.plugins.add(Storage, 'my-phaser-template');
+    // As an example, here we instantiate some plugins, passing them the
+    // options required, and sharing them back as properties of the game
+    // object. This way, each plugin can be accessed globally, without
+    // polluting the global environment scope.
+    this.game.storage  = this.game.plugins.add(Storage, 'my-phaser-template');
+    this.game.settings = this.game.plugins.add(Settings, defaultSettings);
 
     // We also initialize the physics engine we'll be using.
     this.physics.startSystem(Phaser.Physics.ARCADE);
@@ -58,6 +63,16 @@ class Boot extends Phaser.State {
     this.scale.pageAlignHorizontally   = true;
     this.scale.pageAlignVertically     = true;
     this.stage.disableVisibilityChange = true;
+
+    // Fetch game settings from local storage.
+    this.game.storage.getItem('settings', this.restoreSettings, this);
+  }
+
+  // This is the callback invoked by the Storage plugin when fetching the game
+  // settings.
+  restoreSettings (err, data) {
+    if (data !== null)
+      this.game.settings.load(data);
   }
 
 }
