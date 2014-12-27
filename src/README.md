@@ -55,7 +55,6 @@ Planned Updates
 *   Handle screen orientation changes.
 *   Simple level selection.
 *   Include simple sound effects.
-*   Handle game settings, like sound volume etc.
 *   Use localForage to save game progress and settings.
 
 <!-- 
