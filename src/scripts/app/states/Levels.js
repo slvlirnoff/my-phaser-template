@@ -6,15 +6,6 @@
  */
 
 
-const levelButtonFaces = {
-  '1': 'button-lvl-1',
-  '2': 'button-lvl-2',
-  '3': 'button-lvl-3',
-  '4': 'button-lvl-4',
-  '5': 'button-lvl-5',
-};
-
-
 class Levels extends Phaser.State {
 
   create () {
@@ -69,7 +60,7 @@ class Levels extends Phaser.State {
 
   getLevelButtonFace (level) {
     if (this.getLevelUnlocked(level))
-      return levelButtonFaces[level];
+      return `button-lvl-${level}`;
 
     return 'button-lvl-no';
   }
