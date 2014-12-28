@@ -34,15 +34,15 @@ class Menu extends Phaser.State {
   }
 
   makeStartButton (x, y) {
-    return this.makeButton(x, y, 'button-start', this.startGame);
+    return this.makeButton(x, y, 'button-start', this.showLevelSelection);
   }
 
   makeCreditsButton (x, y) {
     return this.makeButton(x, y, 'button-menu', this.showCredits);
   }
 
-  startGame () {
-    this.state.start('Game');
+  showLevelSelection () {
+    this.state.start('Levels');
   }
 
   showCredits () {
