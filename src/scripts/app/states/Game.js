@@ -42,11 +42,32 @@ class Game extends Phaser.State {
     // Place the rotating logo wherever the user clicks/touches the game
     // canvas.
     this.input.onUp.add(this.placeLogo, this);
+
+    this.add.existing(this.makeBackButton(48, 48));
+
+    // For demonstration purposes, every 3s a new level will be unlocked.
+    this.time.events.add(3000, this.unlockNextLevel, this);
   }
 
   update () {
     // See, this is just a demonstration game, so we have nothing much to do
     // here. Now, it's your time to create an awesome game!
+  }
+
+  // --------------------------------------------------------------------------
+
+  makeButton (x, y, face, callback = null) {
+    let button = this.make.button(
+      x, y, 'buttons', callback, this, face, face);
+
+    button.anchor.set(0.5);
+    button.input.useHandCursor = true;
+
+    return button;
+  }
+
+  makeBackButton (x, y) {
+    return this.makeButton(x, y, 'button-back', this.showLevelSelection);
   }
 
   makeRotatingLogo (x, y, speed = 4000) {
@@ -57,6 +78,24 @@ class Game extends Phaser.State {
     // This method uses object destructuring right in the parameters, so we can
     // take only the object properties we are interested in.
     this.rotatingLogo.reset(x, y);
+  }
+
+  showLevelSelection () {
+    this.state.start('Levels');
+  }
+
+  unlockNextLevel () {
+    if (this.level < 5) {
+      this.game.settings.lastLevel = this.level + 1;
+
+      this.game.storage.setItem(
+        'settings', this.game.settings.data, this.nextLevelUnlocked, this);
+    }
+  }
+
+  nextLevelUnlocked (err, data) {
+    if (!err)
+      console.log('Unlocking game level number #%d', data.lastLevel);
   }
 
 }
