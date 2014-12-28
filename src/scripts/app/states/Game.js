@@ -85,17 +85,17 @@ class Game extends Phaser.State {
   }
 
   unlockNextLevel () {
-    if (this.level < 5) {
-      this.game.settings.lastLevel = this.level + 1;
+    if (this.level < 4) {
+      this.game.settings.unlockNextLevel(this.level);
 
       this.game.storage.setItem(
         'settings', this.game.settings.data, this.nextLevelUnlocked, this);
     }
   }
 
-  nextLevelUnlocked (err, data) {
+  nextLevelUnlocked (err) {
     if (!err)
-      console.log('Unlocking game level number #%d', data.lastLevel);
+      console.log('Unlocking game level number #%d', this.level + 2);
   }
 
 }

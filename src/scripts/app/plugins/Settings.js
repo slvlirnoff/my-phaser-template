@@ -29,15 +29,16 @@ class Settings extends Phaser.Plugin {
     this.game.sound.mute = this.soundMuted;
   }
 
+  isLevelLocked (level) {
+    return this.data.unlockedLevels[level];
+  }
+
+  unlockNextLevel (currentLevel) {
+    if (currentLevel < 4)
+      this.data.unlockedLevels[currentLevel + 1] = true;
+  }
+
   // --------------------------------------------------------------------------
-
-  get lastLevel () {
-    return this.data.lastLevel;
-  }
-
-  set lastLevel (value) {
-    this.data.lastLevel = value;
-  }
 
   get soundMuted () {
     return this.data.soundMuted;

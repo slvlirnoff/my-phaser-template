@@ -10,11 +10,11 @@ class Levels extends Phaser.State {
 
   create () {
     const levelButtonPositions = [
-      { x: 144, y: 432, level: 1 },
-      { x: 240, y: 432, level: 2 },
-      { x: 336, y: 432, level: 3 },
-      { x: 192, y: 528, level: 4 },
-      { x: 288, y: 528, level: 5 }
+      { x: 144, y: 432, level: 0 },
+      { x: 240, y: 432, level: 1 },
+      { x: 336, y: 432, level: 2 },
+      { x: 192, y: 528, level: 3 },
+      { x: 288, y: 528, level: 4 }
     ];
 
     this.stage.backgroundColor = '#333';
@@ -55,12 +55,12 @@ class Levels extends Phaser.State {
   }
 
   getLevelUnlocked (level) {
-    return level <= this.game.settings.lastLevel;
+    return this.game.settings.isLevelLocked(level);
   }
 
   getLevelButtonFace (level) {
     if (this.getLevelUnlocked(level))
-      return `button-lvl-${level}`;
+      return `button-lvl-${level + 1}`;
 
     return 'button-lvl-no';
   }

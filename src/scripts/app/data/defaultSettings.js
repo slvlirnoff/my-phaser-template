@@ -1,4 +1,4 @@
 export default {
-  lastLevel: 1,
+  unlockedLevels: [ true, false, false, false, false ],
   soundMuted: false
 };
