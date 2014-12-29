@@ -53,7 +53,6 @@ Planned Updates
 ### Missing Features ##########################################################
 
 *   Handle screen orientation changes.
-*   Simple level selection.
 *   Include simple sound effects.
 *   Use localForage to save game progress and settings.
 
