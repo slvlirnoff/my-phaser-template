@@ -4,8 +4,8 @@ var handleErrors = require('../util/handleErrors');
 
 module.exports = function (gulp, $, config) {
 
-  var paths          = config.paths;
-  var traceurOptions = config.traceurOptions;
+  var paths           = config.paths;
+  var compilerOptions = config.compilerOptions;
 
   gulp.task('html', function () {
     return gulp.src(paths['templates'])
@@ -30,11 +30,11 @@ module.exports = function (gulp, $, config) {
       .pipe($.jshint.reporter('jshint-stylish'));
   });
 
-  gulp.task('traceur', [ 'jshint' ], function () {
+  gulp.task('6to5', [ 'jshint' ], function () {
     return gulp.src(paths['scripts'])
       .pipe(handleErrors())
-      .pipe($.sourcemaps.init({ loadMaps: true }))
-      .pipe($.traceur(traceurOptions))
+      .pipe($.sourcemaps.init())
+      .pipe($['6to5'](compilerOptions))
       .pipe($.concat('game.js'))
       .pipe($.sourcemaps.write('.'))
       .pipe(gulp.dest(paths['temp']))
