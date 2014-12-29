@@ -14,7 +14,10 @@ module.exports = function (gulp, $, config) {
   ]);
 
   gulp.task('bower-libs', function () {
-    return gulp.src(mainBowerFiles())
+    var libs = [ 'node_modules/6to5/browser-polyfill.js' ]
+      .concat(mainBowerFiles());
+
+    return gulp.src(libs)
       .pipe($.concat('bower-libs.js'))
       .pipe(gulp.dest(paths['temp']));
   });
