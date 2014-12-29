@@ -12,12 +12,15 @@ module.exports = {
     get templates () { return this['src'] + '/index.html' }
   },
 
-  'traceurOptions': {
-    modules: 'register',
-    moduleName: true,
-    sourceMaps: 'inline'
+  'compilerOptions': {
+    modules: 'amd',
+    moduleIds: true,
+    format: {
+      comments: false,
+      compact: true
+    }
   },
 
-  'bootSnippet': "\n;!function(A){A.start();}(System.get('app')['default']);"
+  'bootSnippet': "\n;!function(a){a.start()}(require('app').default);"
 
 };

@@ -8,7 +8,7 @@ module.exports = function (gulp, $, config) {
 
   gulp.task('compile', [
     'bower-libs',
-    'traceur',
+    '6to5',
     'html',
     'less'
   ]);
@@ -33,9 +33,9 @@ module.exports = function (gulp, $, config) {
   });
 
   gulp.task('watch', function () {
-    gulp.watch(paths['scripts'],   [ 'traceur' ]);
-    gulp.watch(paths['less'],      [    'less' ]);
-    gulp.watch(paths['templates'], [    'html' ]);
+    gulp.watch(paths['scripts'],   [ '6to5' ]);
+    gulp.watch(paths['less'],      [ 'less' ]);
+    gulp.watch(paths['templates'], [ 'html' ]);
   });
 
   gulp.task('default', [
