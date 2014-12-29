@@ -48,7 +48,7 @@
     <!-- build:js game.min.js -->
     <script src="bower-libs.js"></script>
     <script src="game.js"></script>
-    <script>(function (App) { App.start(); }(System.get('app')['default']));</script>
+    <script>!function(App){App.start()}(require('app').default)</script>
     <!-- /build -->
   </body>
 

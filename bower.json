@@ -1,13 +1,13 @@
 {
   "name": "my-phaser-template",
-  "description": "A Phaser project template, featuring Traceur and localForage.",
+  "description": "A Phaser project template, featuring 6to5 and localForage.",
   "authors": [
     "Me <me@example.com>"
   ],
   "dependencies": {
     "localforage": "latest",
     "phaser": "latest",
-    "traceur-runtime": "latest"
+    "almond": "latest"
   },
   "overrides": {
     "phaser": {
