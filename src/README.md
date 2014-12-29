@@ -3,9 +3,9 @@ My Awesome (Sample) Game
 
 Hi there!
 
-This is just a small game, to show you some of the [current capabilities][tclf]
-of Traceur that may help you creating good looking, performant games. You could
-use this as the foundation of your own game, or scrap the whole thing and start
+This is just a small game, to show you some of the [current features][feat] of
+6to5 that may help you creating good looking, performant games. You could use
+this as the foundation of your own game, or scrap the whole thing and start
 coding whatever you like right away.
 
 Now, I don't know what you'll create, neither the kind of game you want to
@@ -64,4 +64,4 @@ Planned Updates
 
 <!--  --------------------------------------------------------------------- -->
 
-[tclf]: https://github.com/google/traceur-compiler/wiki/LanguageFeatures
+[feat]: https://6to5.org/features.html

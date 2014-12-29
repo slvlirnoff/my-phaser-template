@@ -4,8 +4,7 @@ My Phaser Template
 NOTICE: This project is considered in an early development stage and is not
 suitable for general use yet.
 
-A project template for [Phaser][phsr] games, featuring Traceur Compiler and
-localForage.
+A project template for [Phaser][phsr] games, featuring 6to5 and localForage.
 
 
 What's included?
@@ -25,9 +24,8 @@ What's included?
 
 *   [localForage][lofr] for client-side data storage, including Phaser plugin.
 
-*   [Traceur Compiler][trcr] to translate JavaScript-of-the-near-future to
-    JavaScript-of-today syntax. See which [language features][tclf] are
-    currently supported.
+*   [6to5][6to5] to translate JavaScript-of-the-near-future to JavaScript-of-
+    today syntax. See which [language features][feat] are currently supported.
 
 
 This template includes a sample game, presenting some of the features you can
@@ -62,13 +60,13 @@ Bohan (@pixelpicosean)][ppsn].
 
 [bowr]: http://bower.io/
 [phsr]: http://phaser.io/
+[6to5]: https://6to5.org/
 [gulp]: http://gulpjs.com/
 [jsht]: http://jshint.com/
 [edcf]: http://editorconfig.org/
 [bsnc]: http://www.browsersync.io/
+[feat]: https://6to5.org/features.html
 [ppsn]: https://github.com/pixelpicosean/
 [lofr]: http://mozilla.github.io/localForage/
-[trcr]: https://github.com/google/traceur-compiler/
 [sspp]: https://github.com/pixelpicosean/slush-phaser-project
-[tclf]: https://github.com/google/traceur-compiler/wiki/LanguageFeatures
 [lcnc]: https://github.com/rblopes/my-phaser-template/blob/master/LICENSE
