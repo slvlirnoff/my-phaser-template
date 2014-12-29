@@ -31,7 +31,7 @@ module.exports = function (gulp, $, config) {
       .pipe(gulp.dest(paths['dist']));
   });
 
-  gulp.task('uglify', [ 'traceur' ], function () {
+  gulp.task('uglify', [ '6to5' ], function () {
     var files = mainBowerFiles().concat('./.tmp/game.js');
 
     return gulp.src(files)
