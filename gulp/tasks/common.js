@@ -1,5 +1,6 @@
 var reload       = require('browser-sync').reload;
 var handleErrors = require('../util/handleErrors');
+var autoprefixer = require('autoprefixer-core');
 
 
 module.exports = function (gulp, $, config) {
@@ -17,6 +18,9 @@ module.exports = function (gulp, $, config) {
     return gulp.src(paths['less'])
       .pipe(handleErrors())
       .pipe($.less())
+      .pipe($.postcss([
+        autoprefixer()
+      ]))
       .pipe($.concat('style.css'))
       .pipe(gulp.dest(paths['temp']))
       .pipe(reload({ stream: true }));
