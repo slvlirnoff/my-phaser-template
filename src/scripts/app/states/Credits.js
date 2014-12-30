@@ -10,7 +10,7 @@
 import text from '../data/credits';
 
 
-class Credits extends Phaser.State {
+export default {
 
   create () {
     this.stage.backgroundColor = '#333';
@@ -24,7 +24,7 @@ class Credits extends Phaser.State {
       .start();
 
     this.add.existing(this.makeBackButton(48, 48));
-  }
+  },
 
   // --------------------------------------------------------------------------
 
@@ -36,11 +36,11 @@ class Credits extends Phaser.State {
     button.input.useHandCursor = true;
 
     return button;
-  }
+  },
 
   makeBackButton (x, y) {
     return this.makeButton(x, y, 'button-back', this.showMenu);
-  }
+  },
 
   makeCreditsLabel (x, y, creditsText) {
     var text = this.add.text(x, y, creditsText, {
@@ -52,13 +52,10 @@ class Credits extends Phaser.State {
     text.anchor.set(0.5, 0);
 
     return text;
-  }
+  },
 
   showMenu () {
     this.state.start('Menu');
   }
 
-}
-
-
-export default Credits;
+};

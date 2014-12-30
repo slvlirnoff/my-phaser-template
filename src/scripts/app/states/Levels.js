@@ -6,7 +6,7 @@
  */
 
 
-class Levels extends Phaser.State {
+export default {
 
   create () {
     const levelButtonPositions = [
@@ -27,7 +27,7 @@ class Levels extends Phaser.State {
       this.add.existing(this.makeLevelButton(x, y, level));
 
     this.add.existing(this.makeBackButton(48, 48));
-  }
+  },
 
   // --------------------------------------------------------------------------
 
@@ -39,11 +39,11 @@ class Levels extends Phaser.State {
     button.input.useHandCursor = true;
 
     return button;
-  }
+  },
 
   makeBackButton (x, y) {
     return this.makeButton(x, y, 'buttons', 'button-back', this.showMenu);
-  }
+  },
 
   makeLevelButton (x, y, level) {
     let button = this.makeButton(
@@ -52,29 +52,26 @@ class Levels extends Phaser.State {
     button.levelNumber = level;
 
     return button;
-  }
+  },
 
   getLevelUnlocked (level) {
     return this.game.settings.isLevelLocked(level);
-  }
+  },
 
   getLevelButtonFace (level) {
     if (this.getLevelUnlocked(level))
       return `button-lvl-${level + 1}`;
 
     return 'button-lvl-no';
-  }
+  },
 
   goToLevel ({ levelNumber }) {
     if (this.getLevelUnlocked(levelNumber))
       this.state.start('Game', true, false, levelNumber);
-  }
+  },
 
   showMenu () {
     this.state.start('Menu');
   }
 
-}
-
-
-export default Levels;
+};
