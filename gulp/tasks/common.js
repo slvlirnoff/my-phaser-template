@@ -37,8 +37,10 @@ module.exports = function (gulp, $, config) {
   gulp.task('6to5', [ 'jshint' ], function () {
     return gulp.src(paths['scripts'])
       .pipe(handleErrors())
+      .pipe($.cached('scripts'))
       .pipe($.sourcemaps.init())
       .pipe($['6to5'](compilerOptions))
+      .pipe($.remember('scripts'))
       .pipe($.concat('game.js'))
       .pipe($.sourcemaps.write('.'))
       .pipe(gulp.dest(paths['temp']))

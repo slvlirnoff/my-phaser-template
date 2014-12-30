@@ -6,6 +6,17 @@ module.exports = function (gulp, $, config) {
 
   var paths = config.paths;
 
+  // Forget any cached data
+  // Reference: https://github.com/gulpjs/gulp/blob/master/docs/recipes/incremental-builds-with-concatenate.md
+  function forget (cacheName) {
+    return function (e) {
+      if (e.type === 'deleted') {
+        $.remember.forget(cacheName, e.path);
+        delete $.cached.caches[cacheName][e.path];
+      }
+    };
+  }
+
   gulp.task('compile', [
     'bower-libs',
     '6to5',
@@ -36,7 +47,9 @@ module.exports = function (gulp, $, config) {
   });
 
   gulp.task('watch', function () {
-    gulp.watch(paths['scripts'],   [ '6to5' ]);
+    gulp.watch(paths['scripts'], [ '6to5' ])
+      .on('changed', forget('scripts'));
+
     gulp.watch(paths['less'],      [ 'less' ]);
     gulp.watch(paths['templates'], [ 'html' ]);
   });
