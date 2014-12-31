@@ -16,7 +16,7 @@ module.exports = function (gulp, $, config) {
     };
   }
 
-  gulp.task('server', [ 'compile' ], function () {
+  gulp.task('dev:server', [ 'compile' ], function () {
     browserSync({
       server: {
         baseDir: [
@@ -29,7 +29,7 @@ module.exports = function (gulp, $, config) {
     });
   });
 
-  gulp.task('watch', function () {
+  gulp.task('dev:watch', function () {
     gulp.watch(paths['scripts'], [ 'compile:js' ])
       .on('changed', forget('scripts'));
 
@@ -37,9 +37,9 @@ module.exports = function (gulp, $, config) {
     gulp.watch(paths['templates'], [ 'compile:templates' ]);
   });
 
-  gulp.task('default', [
-    'server',
-    'watch'
+  gulp.task('dev', [
+    'dev:server',
+    'dev:watch'
   ]);
 
 };

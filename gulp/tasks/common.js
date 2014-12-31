@@ -18,4 +18,7 @@ module.exports = function (gulp, $, config) {
     del([ paths['temp'], paths['dist'] ], cb);
   });
 
+  // Aliasing `dev` as default task.
+  gulp.task('default', [ 'dev' ]);
+
 };
