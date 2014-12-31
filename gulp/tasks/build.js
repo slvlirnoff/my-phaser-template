@@ -1,4 +1,3 @@
-var del            = require('del');
 var runSequence    = require('run-sequence');
 var handleErrors   = require('../util/handleErrors');
 var mainBowerFiles = require('main-bower-files');
@@ -8,10 +7,6 @@ module.exports = function (gulp, $, config) {
 
   var paths       = config.paths;
   var bootSnippet = config.bootSnippet;
-
-  gulp.task('clean', function (cb) {
-    del([ paths['temp'], paths['dist'] ], cb);
-  });
 
   gulp.task('build:templates', function () {
     return gulp.src(paths['templates'])

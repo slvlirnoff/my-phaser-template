@@ -1,5 +1,4 @@
-var browserSync    = require('browser-sync');
-var mainBowerFiles = require('main-bower-files');
+var browserSync = require('browser-sync');
 
 
 module.exports = function (gulp, $, config) {
@@ -16,22 +15,6 @@ module.exports = function (gulp, $, config) {
       }
     };
   }
-
-  gulp.task('compile', [
-    'compile:bundle',
-    'compile:js',
-    'compile:templates',
-    'compile:css'
-  ]);
-
-  gulp.task('compile:bundle', function () {
-    var libs = [ 'node_modules/6to5/browser-polyfill.js' ]
-      .concat(mainBowerFiles());
-
-    return gulp.src(libs)
-      .pipe($.concat('bower-libs.js'))
-      .pipe(gulp.dest(paths['temp']));
-  });
 
   gulp.task('server', [ 'compile' ], function () {
     browserSync({
