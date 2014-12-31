@@ -8,13 +8,13 @@ module.exports = function (gulp, $, config) {
   var paths           = config.paths;
   var compilerOptions = config.compilerOptions;
 
-  gulp.task('html', function () {
+  gulp.task('compile:templates', function () {
     return gulp.src(paths['templates'])
       .pipe(gulp.dest(paths['temp']))
       .pipe(reload({ stream: true }));
   });
 
-  gulp.task('less', function () {
+  gulp.task('compile:css', function () {
     return gulp.src(paths['less'])
       .pipe(handleErrors())
       .pipe($.less())
@@ -34,7 +34,7 @@ module.exports = function (gulp, $, config) {
       .pipe($.jshint.reporter('jshint-stylish'));
   });
 
-  gulp.task('6to5', [ 'jshint' ], function () {
+  gulp.task('compile:js', [ 'jshint' ], function () {
     return gulp.src(paths['scripts'])
       .pipe(handleErrors())
       .pipe($.cached('scripts'))

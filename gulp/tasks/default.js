@@ -18,13 +18,13 @@ module.exports = function (gulp, $, config) {
   }
 
   gulp.task('compile', [
-    'bower-libs',
-    '6to5',
-    'html',
-    'less'
+    'compile:bundle',
+    'compile:js',
+    'compile:templates',
+    'compile:css'
   ]);
 
-  gulp.task('bower-libs', function () {
+  gulp.task('compile:bundle', function () {
     var libs = [ 'node_modules/6to5/browser-polyfill.js' ]
       .concat(mainBowerFiles());
 
@@ -47,11 +47,11 @@ module.exports = function (gulp, $, config) {
   });
 
   gulp.task('watch', function () {
-    gulp.watch(paths['scripts'], [ '6to5' ])
+    gulp.watch(paths['scripts'], [ 'compile:js' ])
       .on('changed', forget('scripts'));
 
-    gulp.watch(paths['less'],      [ 'less' ]);
-    gulp.watch(paths['templates'], [ 'html' ]);
+    gulp.watch(paths['less'],      [       'compile:css' ]);
+    gulp.watch(paths['templates'], [ 'compile:templates' ]);
   });
 
   gulp.task('default', [

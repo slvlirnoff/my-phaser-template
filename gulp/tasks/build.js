@@ -13,14 +13,14 @@ module.exports = function (gulp, $, config) {
     del([ paths['temp'], paths['dist'] ], cb);
   });
 
-  gulp.task('processHtml', function () {
+  gulp.task('build:templates', function () {
     return gulp.src(paths['templates'])
       .pipe(handleErrors())
       .pipe($.processhtml('index.html'))
       .pipe(gulp.dest(paths['dist']));
   });
 
-  gulp.task('minifyCss', [ 'less' ], function () {
+  gulp.task('build:css', [ 'compile:css' ], function () {
     return gulp.src(paths['temp'] + '/style.css')
       .pipe(handleErrors())
       .pipe($.minifyCss({
@@ -31,7 +31,7 @@ module.exports = function (gulp, $, config) {
       .pipe(gulp.dest(paths['dist']));
   });
 
-  gulp.task('uglify', [ '6to5' ], function () {
+  gulp.task('build:js', [ 'compile:js' ], function () {
     var files = mainBowerFiles().concat('./.tmp/game.js');
 
     return gulp.src(files)
@@ -43,7 +43,7 @@ module.exports = function (gulp, $, config) {
       .pipe(gulp.dest(paths['dist']));
   });
 
-  gulp.task('processAssets', function () {
+  gulp.task('build:assets', function () {
     gulp.src(paths['assets'])
       .pipe(handleErrors())
       .pipe(gulp.dest(paths['dist']));
@@ -51,10 +51,10 @@ module.exports = function (gulp, $, config) {
 
   gulp.task('build', function (done) {
     runSequence('clean', [
-      'processHtml',
-      'minifyCss',
-      'uglify',
-      'processAssets'
+      'build:templates',
+      'build:css',
+      'build:js',
+      'build:assets'
     ], done);
   });
 
