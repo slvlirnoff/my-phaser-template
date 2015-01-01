@@ -1,30 +1,10 @@
-var reload       = require('browser-sync').reload;
+var del          = require('del');
 var handleErrors = require('../util/handleErrors');
-var autoprefixer = require('autoprefixer-core');
 
 
 module.exports = function (gulp, $, config) {
 
-  var paths           = config.paths;
-  var compilerOptions = config.compilerOptions;
-
-  gulp.task('html', function () {
-    return gulp.src(paths['templates'])
-      .pipe(gulp.dest(paths['temp']))
-      .pipe(reload({ stream: true }));
-  });
-
-  gulp.task('less', function () {
-    return gulp.src(paths['less'])
-      .pipe(handleErrors())
-      .pipe($.less())
-      .pipe($.postcss([
-        autoprefixer()
-      ]))
-      .pipe($.concat('style.css'))
-      .pipe(gulp.dest(paths['temp']))
-      .pipe(reload({ stream: true }));
-  });
+  var paths = config.paths;
 
   gulp.task('jshint', function () {
     return gulp.src([ paths['scripts'] ])
@@ -34,17 +14,11 @@ module.exports = function (gulp, $, config) {
       .pipe($.jshint.reporter('jshint-stylish'));
   });
 
-  gulp.task('6to5', [ 'jshint' ], function () {
-    return gulp.src(paths['scripts'])
-      .pipe(handleErrors())
-      .pipe($.cached('scripts'))
-      .pipe($.sourcemaps.init())
-      .pipe($['6to5'](compilerOptions))
-      .pipe($.remember('scripts'))
-      .pipe($.concat('game.js'))
-      .pipe($.sourcemaps.write('.'))
-      .pipe(gulp.dest(paths['temp']))
-      .pipe(reload({ stream: true }));
+  gulp.task('clean', function (cb) {
+    del([ paths['temp'], paths['dist'] ], cb);
   });
+
+  // Aliasing `dev` as default task.
+  gulp.task('default', [ 'dev' ]);
 
 };

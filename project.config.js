@@ -21,6 +21,24 @@ module.exports = {
     }
   },
 
+  'appcacheOptions': {
+    filename: 'offline.appcache',
+    cache: [
+      'game.min.js',
+      'style.min.css'
+    ],
+    preferOnline: true,
+    timestamp: true,
+    network: [
+      'https://*',
+      'http://*',
+      '*'
+    ],
+    fallback: [
+      '/ /index.html'
+    ]
+  },
+
   'bootSnippet': "\n;!function(a){a.start()}(require('app').default);"
 
 };
