@@ -64,6 +64,8 @@ export default {
     this.scale.pageAlignVertically     = true;
     this.stage.disableVisibilityChange = true;
 
+    this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+
     // Fetch game settings from local storage.
     this.game.storage.getItem('settings', this.restoreSettings, this);
   },
