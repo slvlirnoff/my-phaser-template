@@ -40,7 +40,7 @@ module.exports = function (gulp, $, config) {
   });
 
   gulp.task('build:assets', function () {
-    gulp.src(paths['assets'])
+    return gulp.src(paths['assets'])
       .pipe(handleErrors())
       .pipe(gulp.dest(paths['dist']))
       .pipe($.manifest(appcacheOptions))
