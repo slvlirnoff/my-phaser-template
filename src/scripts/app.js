@@ -9,7 +9,7 @@ import Game    from './app/states/Game';
 export default {
 
   start () {
-    var game = new Phaser.Game(480, 720, Phaser.AUTO, 'game');
+    var game = new Phaser.Game(480, 720, Phaser.AUTO);
 
     game.state.add('Boot',    Boot);
     game.state.add('Preload', Preload);
