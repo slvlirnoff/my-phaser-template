@@ -69,4 +69,5 @@ Bohan (@pixelpicosean)][ppsn].
 [ppsn]: https://github.com/pixelpicosean/
 [lofr]: http://mozilla.github.io/localForage/
 [sspp]: https://github.com/pixelpicosean/slush-phaser-project
+[dwld]: https://github.com/rblopes/my-phaser-template/archive/master.zip
 [lcnc]: https://github.com/rblopes/my-phaser-template/blob/master/LICENSE
