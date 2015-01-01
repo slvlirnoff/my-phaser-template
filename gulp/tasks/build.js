@@ -5,8 +5,9 @@ var mainBowerFiles = require('main-bower-files');
 
 module.exports = function (gulp, $, config) {
 
-  var paths       = config.paths;
-  var bootSnippet = config.bootSnippet;
+  var paths           = config.paths;
+  var bootSnippet     = config.bootSnippet;
+  var appcacheOptions = config.appcacheOptions;
 
   gulp.task('build:templates', function () {
     return gulp.src(paths['templates'])
@@ -41,6 +42,8 @@ module.exports = function (gulp, $, config) {
   gulp.task('build:assets', function () {
     gulp.src(paths['assets'])
       .pipe(handleErrors())
+      .pipe(gulp.dest(paths['dist']))
+      .pipe($.manifest(appcacheOptions))
       .pipe(gulp.dest(paths['dist']));
   });
 
