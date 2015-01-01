@@ -1,8 +1,8 @@
 {
-    "name": "My Phaser Boilerplate",
+    "name": "My Phaser Template",
     "start_url": "/index.html",
     "display": "fullscreen",
-    "orientation": "landscape",
+    "orientation": "portrait",
     "icons": [
         {
             "src": "icon/apple-touch-icon-60x60.png",
