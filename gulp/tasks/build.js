@@ -33,7 +33,6 @@ module.exports = function (gulp, $, config) {
     return gulp.src(files)
       .pipe($.sourcemaps.init())
       .pipe($.concat('game.min.js'))
-      .pipe($.footer(bootSnippet))
       .pipe($.uglify())
       .pipe($.sourcemaps.write('.'))
       .pipe(gulp.dest(paths['dist']));

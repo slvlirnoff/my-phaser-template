@@ -37,8 +37,6 @@ module.exports = {
     fallback: [
       '/ /index.html'
     ]
-  },
-
-  'bootSnippet': "\n;!function(a){a.start()}(require('app').default);"
+  }
 
 };
