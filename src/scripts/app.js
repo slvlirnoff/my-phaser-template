@@ -6,21 +6,17 @@ import Levels  from './app/states/Levels';
 import Game    from './app/states/Game';
 
 
-export default {
+export function start () {
+  var game = new Phaser.Game(480, 720, Phaser.AUTO);
 
-  start () {
-    var game = new Phaser.Game(480, 720, Phaser.AUTO);
+  game.state.add('Boot',    Boot);
+  game.state.add('Preload', Preload);
+  game.state.add('Menu',    Menu);
+  game.state.add('Credits', Credits);
+  game.state.add('Levels',  Levels);
+  game.state.add('Game',    Game);
 
-    game.state.add('Boot',    Boot);
-    game.state.add('Preload', Preload);
-    game.state.add('Menu',    Menu);
-    game.state.add('Credits', Credits);
-    game.state.add('Levels',  Levels);
-    game.state.add('Game',    Game);
+  game.state.start('Boot');
 
-    game.state.start('Boot');
-
-    return game;
-  }
-
-};
+  return game;
+}
