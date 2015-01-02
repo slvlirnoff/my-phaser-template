@@ -33,7 +33,7 @@ module.exports = function (gulp, $, config) {
       .pipe(reload({ stream: true }));
   });
 
-  gulp.task('build:js', [ 'jshint' ], function () {
+  gulp.task('build:js', [ 'dev:jshint' ], function () {
     return gulp.src(globs['scripts'])
       .pipe(handleErrors())
       .pipe($.cached('scripts'))
