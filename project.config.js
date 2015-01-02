@@ -16,11 +16,10 @@ var TEMPLATES_GLOB = TEMPLATES_DIR + '/*.hbs';
 module.exports = {
 
   'paths': {
-    'dist'     : DIST,
-    'temp'     : BUILD,
-    'static'   : STATIC,
-    'partials' : PARTIALS_DIR,
-    'templates': TEMPLATES_DIR
+    'dist'    : DIST,
+    'temp'    : BUILD,
+    'static'  : STATIC,
+    'partials': PARTIALS_DIR
   },
 
   'globs': {
