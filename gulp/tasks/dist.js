@@ -15,14 +15,14 @@ module.exports = function (gulp, $, config) {
     del([ dirs['build'], dirs['dist'] ], cb);
   });
 
-  gulp.task('dist:templates', [ 'build:templates' ], function () {
+  gulp.task('dist:templates', [ 'dev:build:templates' ], function () {
     return gulp.src(dirs['build'] + '/*.html')
       .pipe(handleErrors())
       .pipe($.processhtml())
       .pipe(gulp.dest(dirs['dist']));
   });
 
-  gulp.task('dist:css', [ 'build:css' ], function () {
+  gulp.task('dist:css', [ 'dev:build:css' ], function () {
     return gulp.src(dirs['build'] + '/*.css')
       .pipe(handleErrors())
       .pipe($.minifyCss(minifyCssOptions))
@@ -30,7 +30,7 @@ module.exports = function (gulp, $, config) {
       .pipe(gulp.dest(dirs['dist']));
   });
 
-  gulp.task('dist:js', [ 'build:js' ], function () {
+  gulp.task('dist:js', [ 'dev:build:js' ], function () {
     var files = mainBowerFiles().concat(dirs['build'] + '/game.js');
 
     return gulp.src(files)

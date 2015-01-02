@@ -1,11 +1,14 @@
-var browserSync  = require('browser-sync');
-var handleErrors = require('../util/handleErrors');
+var browserSync    = require('browser-sync');
+var autoprefixer   = require('autoprefixer-core');
+var handleErrors   = require('../util/handleErrors');
+var mainBowerFiles = require('main-bower-files');
 
 
 module.exports = function (gulp, $, config) {
 
-  var dirs  = config.dirs;
-  var globs = config.globs;
+  var dirs            = config.dirs;
+  var globs           = config.globs;
+  var compilerOptions = config.compilerOptions;
 
   // Forget any cached data
   // Reference: https://github.com/gulpjs/gulp/blob/master/docs/recipes/incremental-builds-with-concatenate.md
@@ -18,7 +21,52 @@ module.exports = function (gulp, $, config) {
     };
   }
 
-  gulp.task('dev:server', [ 'build' ], function () {
+  gulp.task('dev:build:templates', function () {
+    return gulp.src(globs['templates'])
+      .pipe($.compileHandlebars(null, {
+        batch: dirs['partials']
+      }))
+      .pipe($.rename({ extname: '.html' }))
+      .pipe(gulp.dest(dirs['build']))
+      .pipe(browserSync.reload({ stream: true }));
+  });
+
+  gulp.task('dev:build:css', function () {
+    return gulp.src(globs['styles'])
+      .pipe(handleErrors())
+      .pipe($.sourcemaps.init())
+      .pipe($.less())
+      .pipe($.postcss([
+        autoprefixer()
+      ]))
+      .pipe($.sourcemaps.write('.'))
+      .pipe(gulp.dest(dirs['build']))
+      .pipe(browserSync.reload({ stream: true }));
+  });
+
+  gulp.task('dev:build:js', [ 'dev:jshint' ], function () {
+    return gulp.src(globs['scripts'])
+      .pipe(handleErrors())
+      .pipe($.cached('scripts'))
+      .pipe($.sourcemaps.init())
+      .pipe($['6to5'](compilerOptions))
+      .pipe($.remember('scripts'))
+      .pipe($.concat('game.js'))
+      .pipe($.sourcemaps.write('.'))
+      .pipe(gulp.dest(dirs['build']))
+      .pipe(browserSync.reload({ stream: true }));
+  });
+
+  gulp.task('dev:build:bundle', function () {
+    var libs = [ 'node_modules/6to5/browser-polyfill.js' ]
+      .concat(mainBowerFiles());
+
+    return gulp.src(libs)
+      .pipe($.concat('bower-libs.js'))
+      .pipe(gulp.dest(dirs['build']));
+  });
+
+  gulp.task('dev:server', [ 'dev:build' ], function () {
     browserSync({
       server: {
         baseDir: [
@@ -46,6 +94,13 @@ module.exports = function (gulp, $, config) {
       .pipe($.jshint('.jshintrc'))
       .pipe($.jshint.reporter('jshint-stylish'));
   });
+
+  gulp.task('dev:build', [
+    'dev:build:bundle',
+    'dev:build:js',
+    'dev:build:templates',
+    'dev:build:css'
+  ]);
 
   gulp.task('dev', [
     'dev:server',
