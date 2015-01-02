@@ -22,6 +22,11 @@ module.exports = {
     }
   },
 
+  'minifyCssOptions': {
+    keepSpecialComments: false,
+    removeEmpty: true
+  },
+
   'appcacheOptions': {
     filename: 'offline.appcache',
     cache: [
