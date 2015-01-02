@@ -3,7 +3,8 @@ var browserSync = require('browser-sync');
 
 module.exports = function (gulp, $, config) {
 
-  var paths = config.paths;
+  var dirs  = config.dirs;
+  var globs = config.globs;
 
   // Forget any cached data
   // Reference: https://github.com/gulpjs/gulp/blob/master/docs/recipes/incremental-builds-with-concatenate.md
@@ -16,12 +17,12 @@ module.exports = function (gulp, $, config) {
     };
   }
 
-  gulp.task('dev:server', [ 'compile' ], function () {
+  gulp.task('dev:server', [ 'build' ], function () {
     browserSync({
       server: {
         baseDir: [
-          paths['static'],
-          paths['temp']
+          dirs['static'],
+          dirs['build']
         ]
       },
       ghostMode: false,
@@ -30,11 +31,11 @@ module.exports = function (gulp, $, config) {
   });
 
   gulp.task('dev:watch', function () {
-    gulp.watch(paths['scripts'], [ 'compile:js' ])
+    gulp.watch(dirs['scripts'], [ 'build:js' ])
       .on('changed', forget('scripts'));
 
-    gulp.watch(paths['less'],      [       'compile:css' ]);
-    gulp.watch(paths['templates'], [ 'compile:templates' ]);
+    gulp.watch(dirs['less'],      [       'build:css' ]);
+    gulp.watch(dirs['templates'], [ 'build:templates' ]);
   });
 
   gulp.task('dev', [

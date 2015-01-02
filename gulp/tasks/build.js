@@ -1,55 +1,64 @@
-var runSequence    = require('run-sequence');
+var reload         = require('browser-sync').reload;
+var autoprefixer   = require('autoprefixer-core');
 var handleErrors   = require('../util/handleErrors');
 var mainBowerFiles = require('main-bower-files');
 
 
 module.exports = function (gulp, $, config) {
 
-  var paths            = config.paths;
-  var appcacheOptions  = config.appcacheOptions;
-  var minifyCssOptions = config.minifyCssOptions;
+  var dirs            = config.dirs;
+  var globs           = config.globs;
+  var compilerOptions = config.compilerOptions;
 
-  gulp.task('build:templates', [ 'compile:templates' ], function () {
-    return gulp.src(paths['temp'] + '/*.html')
-      .pipe(handleErrors())
-      .pipe($.processhtml())
-      .pipe(gulp.dest(paths['dist']));
+  gulp.task('build:templates', function () {
+    return gulp.src(globs['templates'])
+      .pipe($.compileHandlebars(null, {
+        batch: dirs['partials']
+      }))
+      .pipe($.rename({ extname: '.html' }))
+      .pipe(gulp.dest(dirs['build']))
+      .pipe(reload({ stream: true }));
   });
 
-  gulp.task('build:css', [ 'compile:css' ], function () {
-    return gulp.src(paths['temp'] + '/style.css')
+  gulp.task('build:css', function () {
+    return gulp.src(globs['styles'])
       .pipe(handleErrors())
-      .pipe($.minifyCss(minifyCssOptions))
-      .pipe($.rename('style.min.css'))
-      .pipe(gulp.dest(paths['dist']));
+      .pipe($.less())
+      .pipe($.postcss([
+        autoprefixer()
+      ]))
+      .pipe($.concat('style.css'))
+      .pipe(gulp.dest(dirs['build']))
+      .pipe(reload({ stream: true }));
   });
 
-  gulp.task('build:js', [ 'compile:js' ], function () {
-    var files = mainBowerFiles().concat(paths['temp'] + '/game.js');
-
-    return gulp.src(files)
+  gulp.task('build:js', [ 'jshint' ], function () {
+    return gulp.src(globs['scripts'])
+      .pipe(handleErrors())
+      .pipe($.cached('scripts'))
       .pipe($.sourcemaps.init())
-      .pipe($.concat('game.min.js'))
-      .pipe($.uglify())
+      .pipe($['6to5'](compilerOptions))
+      .pipe($.remember('scripts'))
+      .pipe($.concat('game.js'))
       .pipe($.sourcemaps.write('.'))
-      .pipe(gulp.dest(paths['dist']));
+      .pipe(gulp.dest(dirs['build']))
+      .pipe(reload({ stream: true }));
   });
 
-  gulp.task('build:assets', function () {
-    return gulp.src(paths['assets'])
-      .pipe(handleErrors())
-      .pipe(gulp.dest(paths['dist']))
-      .pipe($.manifest(appcacheOptions))
-      .pipe(gulp.dest(paths['dist']));
+  gulp.task('build:bundle', function () {
+    var libs = [ 'node_modules/6to5/browser-polyfill.js' ]
+      .concat(mainBowerFiles());
+
+    return gulp.src(libs)
+      .pipe($.concat('bower-libs.js'))
+      .pipe(gulp.dest(dirs['build']));
   });
 
-  gulp.task('build', function (done) {
-    runSequence('clean', [
-      'build:templates',
-      'build:css',
-      'build:js',
-      'build:assets'
-    ], done);
-  });
+  gulp.task('build', [
+    'build:bundle',
+    'build:js',
+    'build:templates',
+    'build:css'
+  ]);
 
 };
