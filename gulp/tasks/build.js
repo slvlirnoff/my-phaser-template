@@ -28,7 +28,7 @@ module.exports = function (gulp, $, config) {
   });
 
   gulp.task('build:js', [ 'compile:js' ], function () {
-    var files = mainBowerFiles().concat('./.tmp/game.js');
+    var files = mainBowerFiles().concat(paths['temp'] + '/game.js');
 
     return gulp.src(files)
       .pipe($.sourcemaps.init())
