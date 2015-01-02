@@ -9,7 +9,7 @@ module.exports = {
     get less      () { return this['src'] + '/styles/*.less' },
     get assets    () { return this['static'] + '/**' },
     get scripts   () { return this['src'] + '/scripts/**/*.js' },
-    get templates () { return this['src'] + '/index.html' }
+    get templates () { return this['src'] + '/templates/*.hbs' }
   },
 
   'compilerOptions': {

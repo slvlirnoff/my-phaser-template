@@ -12,6 +12,7 @@
     "gulp": "^3.8.7",
     "gulp-6to5": "^2.0.0",
     "gulp-cached": "^1.0.1",
+    "gulp-compile-handlebars": "^0.4.4",
     "gulp-concat": "^2.3.4",
     "gulp-jshint": "^1.8.4",
     "gulp-less": "^2.0.1",
