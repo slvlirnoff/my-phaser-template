@@ -6,7 +6,6 @@ var mainBowerFiles = require('main-bower-files');
 module.exports = function (gulp, $, config) {
 
   var paths           = config.paths;
-  var bootSnippet     = config.bootSnippet;
   var appcacheOptions = config.appcacheOptions;
 
   gulp.task('build:templates', [ 'compile:templates' ], function () {
