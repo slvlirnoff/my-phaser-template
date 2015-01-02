@@ -42,7 +42,7 @@ performing the tasks described below.
 ```sh
 npm install   # Installs all required project dependencies.
 npm start     # Launches the development server.
-npm run build # Builds the final product.
+npm run dist  # Prepare the game release for distribution.
 npm run clean # Wipes the project from temporary and distribution build files.
 ```
 

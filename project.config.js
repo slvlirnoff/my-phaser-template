@@ -1,15 +1,28 @@
+var SRC      = 'src';
+var BUILD    = 'build';
+var DIST     = 'dist';
+var STATIC   = 'static';
+var PARTIALS = SRC + '/templates/partials';
+
+var STYLES_GLOB    = SRC    + '/styles/*.less';
+var ASSETS_GLOB    = STATIC + '/**';
+var SCRIPTS_GLOB   = SRC    + '/scripts/**/*.js';
+var TEMPLATES_GLOB = SRC    + '/templates/*.hbs';
+
 module.exports = {
 
-  'paths': {
-    'src'   : 'src',
-    'dist'  : 'build',
-    'static': 'static',
-    'temp'  : '.tmp',
+  'dirs': {
+    'dist'    : DIST,
+    'build'   : BUILD,
+    'static'  : STATIC,
+    'partials': PARTIALS
+  },
 
-    get less      () { return this['src'] + '/styles/*.less' },
-    get assets    () { return this['static'] + '/**' },
-    get scripts   () { return this['src'] + '/scripts/**/*.js' },
-    get templates () { return this['src'] + '/index.html' }
+  'globs': {
+    'styles'   : STYLES_GLOB,
+    'assets'   : ASSETS_GLOB,
+    'scripts'  : SCRIPTS_GLOB,
+    'templates': TEMPLATES_GLOB
   },
 
   'compilerOptions': {
@@ -19,6 +32,11 @@ module.exports = {
       comments: false,
       compact: true
     }
+  },
+
+  'minifyCssOptions': {
+    keepSpecialComments: false,
+    removeEmpty: true
   },
 
   'appcacheOptions': {
@@ -37,8 +55,6 @@ module.exports = {
     fallback: [
       '/ /index.html'
     ]
-  },
-
-  'bootSnippet': "\n;!function(a){a.start()}(require('app').default);"
+  }
 
 };
