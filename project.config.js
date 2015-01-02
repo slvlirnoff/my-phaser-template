@@ -1,5 +1,5 @@
 var SRC    = 'src';
-var BUILD  = '.tmp';
+var BUILD  = 'build';
 var DIST   = 'dist';
 var STATIC = 'static';
 
