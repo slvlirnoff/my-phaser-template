@@ -6,17 +6,17 @@ var mainBowerFiles = require('main-bower-files');
 
 module.exports = function (gulp, $, config) {
 
-  var paths           = config.paths;
+  var dirs            = config.dirs;
   var globs           = config.globs;
   var compilerOptions = config.compilerOptions;
 
   gulp.task('compile:templates', function () {
     return gulp.src(globs['templates'])
       .pipe($.compileHandlebars(null, {
-        batch: paths['partials']
+        batch: dirs['partials']
       }))
       .pipe($.rename({ extname: '.html' }))
-      .pipe(gulp.dest(paths['temp']))
+      .pipe(gulp.dest(dirs['temp']))
       .pipe(reload({ stream: true }));
   });
 
@@ -28,7 +28,7 @@ module.exports = function (gulp, $, config) {
         autoprefixer()
       ]))
       .pipe($.concat('style.css'))
-      .pipe(gulp.dest(paths['temp']))
+      .pipe(gulp.dest(dirs['temp']))
       .pipe(reload({ stream: true }));
   });
 
@@ -41,7 +41,7 @@ module.exports = function (gulp, $, config) {
       .pipe($.remember('scripts'))
       .pipe($.concat('game.js'))
       .pipe($.sourcemaps.write('.'))
-      .pipe(gulp.dest(paths['temp']))
+      .pipe(gulp.dest(dirs['temp']))
       .pipe(reload({ stream: true }));
   });
 
@@ -51,7 +51,7 @@ module.exports = function (gulp, $, config) {
 
     return gulp.src(libs)
       .pipe($.concat('bower-libs.js'))
-      .pipe(gulp.dest(paths['temp']));
+      .pipe(gulp.dest(dirs['temp']));
   });
 
   gulp.task('compile', [

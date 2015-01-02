@@ -11,7 +11,7 @@ var TEMPLATES_GLOB = SRC    + '/templates/*.hbs';
 
 module.exports = {
 
-  'paths': {
+  'dirs': {
     'dist'    : DIST,
     'temp'    : BUILD,
     'static'  : STATIC,

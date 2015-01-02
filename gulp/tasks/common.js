@@ -4,7 +4,7 @@ var handleErrors = require('../util/handleErrors');
 
 module.exports = function (gulp, $, config) {
 
-  var paths = config.paths;
+  var dirs  = config.dirs;
   var globs = config.globs;
 
   gulp.task('jshint', function () {
@@ -16,7 +16,7 @@ module.exports = function (gulp, $, config) {
   });
 
   gulp.task('clean', function (cb) {
-    del([ paths['temp'], paths['dist'] ], cb);
+    del([ dirs['temp'], dirs['dist'] ], cb);
   });
 
   // Aliasing `dev` as default task.
