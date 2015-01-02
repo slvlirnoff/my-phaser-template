@@ -31,11 +31,11 @@ module.exports = function (gulp, $, config) {
   });
 
   gulp.task('dev:watch', function () {
-    gulp.watch(dirs['scripts'], [ 'build:js' ])
+    gulp.watch(globs['scripts'], [ 'build:js' ])
       .on('changed', forget('scripts'));
 
-    gulp.watch(dirs['less'],      [       'build:css' ]);
-    gulp.watch(dirs['templates'], [ 'build:templates' ]);
+    gulp.watch(globs['less'],      [       'build:css' ]);
+    gulp.watch(globs['templates'], [ 'build:templates' ]);
   });
 
   gulp.task('dev', [
