@@ -13,7 +13,7 @@ module.exports = {
 
   'dirs': {
     'dist'    : DIST,
-    'temp'    : BUILD,
+    'build'   : BUILD,
     'static'  : STATIC,
     'partials': PARTIALS
   },

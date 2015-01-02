@@ -34,7 +34,7 @@
     "run-sequence": "^1.0.2"
   },
   "scripts": {
-    "build": "gulp build",
+    "dist": "gulp dist",
     "clean": "gulp clean",
     "start": "gulp default",
     "postinstall": "bower install"

@@ -16,7 +16,7 @@ module.exports = function (gulp, $, config) {
   });
 
   gulp.task('clean', function (cb) {
-    del([ dirs['temp'], dirs['dist'] ], cb);
+    del([ dirs['build'], dirs['dist'] ], cb);
   });
 
   // Aliasing `dev` as default task.

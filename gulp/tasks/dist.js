@@ -10,23 +10,23 @@ module.exports = function (gulp, $, config) {
   var appcacheOptions  = config.appcacheOptions;
   var minifyCssOptions = config.minifyCssOptions;
 
-  gulp.task('build:templates', [ 'compile:templates' ], function () {
-    return gulp.src(dirs['temp'] + '/*.html')
+  gulp.task('dist:templates', [ 'build:templates' ], function () {
+    return gulp.src(dirs['build'] + '/*.html')
       .pipe(handleErrors())
       .pipe($.processhtml())
       .pipe(gulp.dest(dirs['dist']));
   });
 
-  gulp.task('build:css', [ 'compile:css' ], function () {
-    return gulp.src(dirs['temp'] + '/style.css')
+  gulp.task('dist:css', [ 'build:css' ], function () {
+    return gulp.src(dirs['build'] + '/style.css')
       .pipe(handleErrors())
       .pipe($.minifyCss(minifyCssOptions))
       .pipe($.rename({ extname: '.min.css' }))
       .pipe(gulp.dest(dirs['dist']));
   });
 
-  gulp.task('build:js', [ 'compile:js' ], function () {
-    var files = mainBowerFiles().concat(dirs['temp'] + '/game.js');
+  gulp.task('dist:js', [ 'build:js' ], function () {
+    var files = mainBowerFiles().concat(dirs['build'] + '/game.js');
 
     return gulp.src(files)
       .pipe($.sourcemaps.init())
@@ -36,7 +36,7 @@ module.exports = function (gulp, $, config) {
       .pipe(gulp.dest(dirs['dist']));
   });
 
-  gulp.task('build:assets', function () {
+  gulp.task('dist:assets', function () {
     return gulp.src(globs['assets'])
       .pipe(handleErrors())
       .pipe(gulp.dest(dirs['dist']))
@@ -44,12 +44,12 @@ module.exports = function (gulp, $, config) {
       .pipe(gulp.dest(dirs['dist']));
   });
 
-  gulp.task('build', function (done) {
+  gulp.task('dist', function (done) {
     runSequence('clean', [
-      'build:templates',
-      'build:css',
-      'build:js',
-      'build:assets'
+      'dist:templates',
+      'dist:css',
+      'dist:js',
+      'dist:assets'
     ], done);
   });
 

@@ -17,12 +17,12 @@ module.exports = function (gulp, $, config) {
     };
   }
 
-  gulp.task('dev:server', [ 'compile' ], function () {
+  gulp.task('dev:server', [ 'build' ], function () {
     browserSync({
       server: {
         baseDir: [
           dirs['static'],
-          dirs['temp']
+          dirs['build']
         ]
       },
       ghostMode: false,
@@ -31,11 +31,11 @@ module.exports = function (gulp, $, config) {
   });
 
   gulp.task('dev:watch', function () {
-    gulp.watch(dirs['scripts'], [ 'compile:js' ])
+    gulp.watch(dirs['scripts'], [ 'build:js' ])
       .on('changed', forget('scripts'));
 
-    gulp.watch(dirs['less'],      [       'compile:css' ]);
-    gulp.watch(dirs['templates'], [ 'compile:templates' ]);
+    gulp.watch(dirs['less'],      [       'build:css' ]);
+    gulp.watch(dirs['templates'], [ 'build:templates' ]);
   });
 
   gulp.task('dev', [

@@ -10,17 +10,17 @@ module.exports = function (gulp, $, config) {
   var globs           = config.globs;
   var compilerOptions = config.compilerOptions;
 
-  gulp.task('compile:templates', function () {
+  gulp.task('build:templates', function () {
     return gulp.src(globs['templates'])
       .pipe($.compileHandlebars(null, {
         batch: dirs['partials']
       }))
       .pipe($.rename({ extname: '.html' }))
-      .pipe(gulp.dest(dirs['temp']))
+      .pipe(gulp.dest(dirs['build']))
       .pipe(reload({ stream: true }));
   });
 
-  gulp.task('compile:css', function () {
+  gulp.task('build:css', function () {
     return gulp.src(globs['styles'])
       .pipe(handleErrors())
       .pipe($.less())
@@ -28,11 +28,11 @@ module.exports = function (gulp, $, config) {
         autoprefixer()
       ]))
       .pipe($.concat('style.css'))
-      .pipe(gulp.dest(dirs['temp']))
+      .pipe(gulp.dest(dirs['build']))
       .pipe(reload({ stream: true }));
   });
 
-  gulp.task('compile:js', [ 'jshint' ], function () {
+  gulp.task('build:js', [ 'jshint' ], function () {
     return gulp.src(globs['scripts'])
       .pipe(handleErrors())
       .pipe($.cached('scripts'))
@@ -41,24 +41,24 @@ module.exports = function (gulp, $, config) {
       .pipe($.remember('scripts'))
       .pipe($.concat('game.js'))
       .pipe($.sourcemaps.write('.'))
-      .pipe(gulp.dest(dirs['temp']))
+      .pipe(gulp.dest(dirs['build']))
       .pipe(reload({ stream: true }));
   });
 
-  gulp.task('compile:bundle', function () {
+  gulp.task('build:bundle', function () {
     var libs = [ 'node_modules/6to5/browser-polyfill.js' ]
       .concat(mainBowerFiles());
 
     return gulp.src(libs)
       .pipe($.concat('bower-libs.js'))
-      .pipe(gulp.dest(dirs['temp']));
+      .pipe(gulp.dest(dirs['build']));
   });
 
-  gulp.task('compile', [
-    'compile:bundle',
-    'compile:js',
-    'compile:templates',
-    'compile:css'
+  gulp.task('build', [
+    'build:bundle',
+    'build:js',
+    'build:templates',
+    'build:css'
   ]);
 
 };
