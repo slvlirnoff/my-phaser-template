@@ -9,10 +9,10 @@ module.exports = function (gulp, $, config) {
   var bootSnippet     = config.bootSnippet;
   var appcacheOptions = config.appcacheOptions;
 
-  gulp.task('build:templates', function () {
-    return gulp.src(paths['templates'])
+  gulp.task('build:templates', [ 'compile:templates' ], function () {
+    return gulp.src(paths['temp'] + '/*.html')
       .pipe(handleErrors())
-      .pipe($.processhtml('index.html'))
+      .pipe($.processhtml())
       .pipe(gulp.dest(paths['dist']));
   });
 
