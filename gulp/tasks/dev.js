@@ -4,6 +4,7 @@ var browserSync = require('browser-sync');
 module.exports = function (gulp, $, config) {
 
   var paths = config.paths;
+  var globs = config.globs;
 
   // Forget any cached data
   // Reference: https://github.com/gulpjs/gulp/blob/master/docs/recipes/incremental-builds-with-concatenate.md

@@ -6,6 +6,7 @@ var mainBowerFiles = require('main-bower-files');
 module.exports = function (gulp, $, config) {
 
   var paths            = config.paths;
+  var globs            = config.globs;
   var appcacheOptions  = config.appcacheOptions;
   var minifyCssOptions = config.minifyCssOptions;
 
@@ -36,7 +37,7 @@ module.exports = function (gulp, $, config) {
   });
 
   gulp.task('build:assets', function () {
-    return gulp.src(paths['assets'])
+    return gulp.src(globs['assets'])
       .pipe(handleErrors())
       .pipe(gulp.dest(paths['dist']))
       .pipe($.manifest(appcacheOptions))

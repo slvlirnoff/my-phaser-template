@@ -1,16 +1,33 @@
+var SRC    = 'src';
+var BUILD  = '.tmp';
+var DIST   = 'dist';
+var STATIC = 'static';
+
+var STYLES_DIR    = SRC           + '/styles';
+var SCRIPTS_DIR   = SRC           + '/scripts';
+var TEMPLATES_DIR = SRC           + '/templates';
+var PARTIALS_DIR  = TEMPLATES_DIR + '/partials';
+
+var STYLES_GLOB    = STYLES_DIR    + '/*.less';
+var ASSETS_GLOB    = STATIC        + '/**';
+var SCRIPTS_GLOB   = SCRIPTS_DIR   + '/**/*.js';
+var TEMPLATES_GLOB = TEMPLATES_DIR + '/*.hbs';
+
 module.exports = {
 
   'paths': {
-    'src'   : 'src',
-    'dist'  : 'build',
-    'static': 'static',
-    'temp'  : '.tmp',
+    'dist'     : DIST,
+    'temp'     : BUILD,
+    'static'   : STATIC,
+    'partials' : PARTIALS_DIR,
+    'templates': TEMPLATES_DIR
+  },
 
-    get less      () { return this['src'] + '/styles/*.less' },
-    get assets    () { return this['static'] + '/**' },
-    get scripts   () { return this['src'] + '/scripts/**/*.js' },
-    get templates () { return this['src'] + '/templates/*.hbs' },
-    get partials  () { return this['src'] + '/templates/partials' }
+  'globs': {
+    'styles'   : STYLES_GLOB,
+    'assets'   : ASSETS_GLOB,
+    'scripts'  : SCRIPTS_GLOB,
+    'templates': TEMPLATES_GLOB
   },
 
   'compilerOptions': {

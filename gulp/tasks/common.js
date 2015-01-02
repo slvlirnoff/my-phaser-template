@@ -5,9 +5,10 @@ var handleErrors = require('../util/handleErrors');
 module.exports = function (gulp, $, config) {
 
   var paths = config.paths;
+  var globs = config.globs;
 
   gulp.task('jshint', function () {
-    return gulp.src([ paths['scripts'] ])
+    return gulp.src([ globs['scripts'] ])
       .pipe(handleErrors())
       .pipe($.cached('jshint'))
       .pipe($.jshint('.jshintrc'))

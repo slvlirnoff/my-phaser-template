@@ -7,10 +7,11 @@ var mainBowerFiles = require('main-bower-files');
 module.exports = function (gulp, $, config) {
 
   var paths           = config.paths;
+  var globs           = config.globs;
   var compilerOptions = config.compilerOptions;
 
   gulp.task('compile:templates', function () {
-    return gulp.src(paths['templates'])
+    return gulp.src(globs['templates'])
       .pipe($.compileHandlebars(null, {
         batch: paths['partials']
       }))
@@ -20,7 +21,7 @@ module.exports = function (gulp, $, config) {
   });
 
   gulp.task('compile:css', function () {
-    return gulp.src(paths['less'])
+    return gulp.src(globs['styles'])
       .pipe(handleErrors())
       .pipe($.less())
       .pipe($.postcss([
@@ -32,7 +33,7 @@ module.exports = function (gulp, $, config) {
   });
 
   gulp.task('compile:js', [ 'jshint' ], function () {
-    return gulp.src(paths['scripts'])
+    return gulp.src(globs['scripts'])
       .pipe(handleErrors())
       .pipe($.cached('scripts'))
       .pipe($.sourcemaps.init())
