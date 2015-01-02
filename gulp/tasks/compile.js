@@ -11,7 +11,9 @@ module.exports = function (gulp, $, config) {
 
   gulp.task('compile:templates', function () {
     return gulp.src(paths['templates'])
-      .pipe($.compileHandlebars())
+      .pipe($.compileHandlebars(null, {
+        batch: paths['partials']
+      }))
       .pipe($.rename({ extname: '.html' }))
       .pipe(gulp.dest(paths['temp']))
       .pipe(reload({ stream: true }));
