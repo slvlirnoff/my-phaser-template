@@ -1,17 +1,13 @@
-var SRC    = 'src';
-var BUILD  = 'build';
-var DIST   = 'dist';
-var STATIC = 'static';
+var SRC      = 'src';
+var BUILD    = 'build';
+var DIST     = 'dist';
+var STATIC   = 'static';
+var PARTIALS = SRC + '/templates/partials';
 
-var STYLES_DIR    = SRC           + '/styles';
-var SCRIPTS_DIR   = SRC           + '/scripts';
-var TEMPLATES_DIR = SRC           + '/templates';
-var PARTIALS_DIR  = TEMPLATES_DIR + '/partials';
-
-var STYLES_GLOB    = STYLES_DIR    + '/*.less';
-var ASSETS_GLOB    = STATIC        + '/**';
-var SCRIPTS_GLOB   = SCRIPTS_DIR   + '/**/*.js';
-var TEMPLATES_GLOB = TEMPLATES_DIR + '/*.hbs';
+var STYLES_GLOB    = SRC    + '/styles/*.less';
+var ASSETS_GLOB    = STATIC + '/**';
+var SCRIPTS_GLOB   = SRC    + '/scripts/**/*.js';
+var TEMPLATES_GLOB = SRC    + '/templates/*.hbs';
 
 module.exports = {
 
@@ -19,7 +15,7 @@ module.exports = {
     'dist'    : DIST,
     'temp'    : BUILD,
     'static'  : STATIC,
-    'partials': PARTIALS_DIR
+    'partials': PARTIALS
   },
 
   'globs': {
