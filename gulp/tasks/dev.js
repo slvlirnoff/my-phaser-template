@@ -52,4 +52,7 @@ module.exports = function (gulp, $, config) {
     'dev:watch'
   ]);
 
+  // Aliasing `dev` as default task.
+  gulp.task('default', [ 'dev' ]);
+
 };

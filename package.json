@@ -35,7 +35,7 @@
   },
   "scripts": {
     "dist": "gulp dist",
-    "clean": "gulp clean",
+    "clean": "gulp dist:clean",
     "start": "gulp default",
     "postinstall": "bower install"
   },
