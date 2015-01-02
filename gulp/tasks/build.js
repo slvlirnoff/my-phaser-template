@@ -21,7 +21,7 @@ module.exports = function (gulp, $, config) {
     return gulp.src(dirs['temp'] + '/style.css')
       .pipe(handleErrors())
       .pipe($.minifyCss(minifyCssOptions))
-      .pipe($.rename('style.min.css'))
+      .pipe($.rename({ extname: '.min.css' }))
       .pipe(gulp.dest(dirs['dist']));
   });
 
