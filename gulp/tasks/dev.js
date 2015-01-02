@@ -44,7 +44,7 @@ module.exports = function (gulp, $, config) {
       .pipe(browserSync.reload({ stream: true }));
   });
 
-  gulp.task('dev:build:js', [ 'dev:jshint' ], function () {
+  gulp.task('dev:build:js', [ 'dev:lint' ], function () {
     return gulp.src(globs['scripts'])
       .pipe(handleErrors())
       .pipe($.cached('scripts'))
@@ -87,7 +87,7 @@ module.exports = function (gulp, $, config) {
     gulp.watch(globs['templates'], [ 'build:templates' ]);
   });
 
-  gulp.task('dev:jshint', function () {
+  gulp.task('dev:lint', function () {
     return gulp.src([ globs['scripts'] ])
       .pipe(handleErrors())
       .pipe($.cached('jshint'))
