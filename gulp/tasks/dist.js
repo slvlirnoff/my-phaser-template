@@ -18,7 +18,7 @@ module.exports = function (gulp, $, config) {
   });
 
   gulp.task('dist:css', [ 'build:css' ], function () {
-    return gulp.src(dirs['build'] + '/style.css')
+    return gulp.src(dirs['build'] + '/*.css')
       .pipe(handleErrors())
       .pipe($.minifyCss(minifyCssOptions))
       .pipe($.rename({ extname: '.min.css' }))

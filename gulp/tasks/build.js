@@ -23,11 +23,12 @@ module.exports = function (gulp, $, config) {
   gulp.task('build:css', function () {
     return gulp.src(globs['styles'])
       .pipe(handleErrors())
+      .pipe($.sourcemaps.init())
       .pipe($.less())
       .pipe($.postcss([
         autoprefixer()
       ]))
-      .pipe($.concat('style.css'))
+      .pipe($.sourcemaps.write('.'))
       .pipe(gulp.dest(dirs['build']))
       .pipe(reload({ stream: true }));
   });
