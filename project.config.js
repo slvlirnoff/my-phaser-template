@@ -2,9 +2,9 @@ var SRC      = 'src';
 var BUILD    = 'build';
 var DIST     = 'dist';
 var STATIC   = 'static';
-var PARTIALS = SRC + '/templates/partials';
+var PARTIALS = SRC + '/views/partials';
 
-var VIEWS_GLOB   = SRC    + '/templates/*.hbs';
+var VIEWS_GLOB   = SRC    + '/views/*.hbs';
 var STYLES_GLOB  = SRC    + '/styles/*.less';
 var ASSETS_GLOB  = STATIC + '/**';
 var SCRIPTS_GLOB = SRC    + '/scripts/**/*.js';
