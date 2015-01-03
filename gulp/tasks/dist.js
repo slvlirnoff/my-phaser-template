@@ -11,18 +11,18 @@ module.exports = function (gulp, $, config) {
   var appcacheOptions  = config.appcacheOptions;
   var minifyCssOptions = config.minifyCssOptions;
 
-  gulp.task('dist:clean', function (cb) {
-    del([ dirs['build'], dirs['dist'] ], cb);
+  gulp.task('dist:clean', function (done) {
+    del([ dirs['build'], dirs['dist'] ], done);
   });
 
-  gulp.task('dist:templates', [ 'dev:build:templates' ], function () {
+  gulp.task('dist:views', [ 'dev:build:views' ], function () {
     return gulp.src(dirs['build'] + '/*.html')
       .pipe(handleErrors())
       .pipe($.processhtml())
       .pipe(gulp.dest(dirs['dist']));
   });
 
-  gulp.task('dist:css', [ 'dev:build:css' ], function () {
+  gulp.task('dist:styles', [ 'dev:build:styles' ], function () {
     return gulp.src(dirs['build'] + '/*.css')
       .pipe(handleErrors())
       .pipe($.minifyCss(minifyCssOptions))
@@ -30,7 +30,7 @@ module.exports = function (gulp, $, config) {
       .pipe(gulp.dest(dirs['dist']));
   });
 
-  gulp.task('dist:js', [ 'dev:build:js' ], function () {
+  gulp.task('dist:scripts', [ 'dev:build:scripts' ], function () {
     var files = mainBowerFiles().concat(dirs['build'] + '/game.js');
 
     return gulp.src(files)
@@ -51,9 +51,9 @@ module.exports = function (gulp, $, config) {
 
   gulp.task('dist', function (done) {
     runSequence('dist:clean', [
-      'dist:templates',
-      'dist:css',
-      'dist:js',
+      'dist:views',
+      'dist:styles',
+      'dist:scripts',
       'dist:assets'
     ], done);
   });

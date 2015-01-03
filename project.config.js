@@ -4,10 +4,10 @@ var DIST     = 'dist';
 var STATIC   = 'static';
 var PARTIALS = SRC + '/templates/partials';
 
-var STYLES_GLOB    = SRC    + '/styles/*.less';
-var ASSETS_GLOB    = STATIC + '/**';
-var SCRIPTS_GLOB   = SRC    + '/scripts/**/*.js';
-var TEMPLATES_GLOB = SRC    + '/templates/*.hbs';
+var VIEWS_GLOB   = SRC    + '/templates/*.hbs';
+var STYLES_GLOB  = SRC    + '/styles/*.less';
+var ASSETS_GLOB  = STATIC + '/**';
+var SCRIPTS_GLOB = SRC    + '/scripts/**/*.js';
 
 module.exports = {
 
@@ -19,10 +19,10 @@ module.exports = {
   },
 
   'globs': {
-    'styles'   : STYLES_GLOB,
-    'assets'   : ASSETS_GLOB,
-    'scripts'  : SCRIPTS_GLOB,
-    'templates': TEMPLATES_GLOB
+    'views'  : VIEWS_GLOB,
+    'styles' : STYLES_GLOB,
+    'assets' : ASSETS_GLOB,
+    'scripts': SCRIPTS_GLOB
   },
 
   'compilerOptions': {

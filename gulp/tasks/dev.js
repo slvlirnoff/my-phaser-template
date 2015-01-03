@@ -21,8 +21,8 @@ module.exports = function (gulp, $, config) {
     };
   }
 
-  gulp.task('dev:build:templates', function () {
-    return gulp.src(globs['templates'])
+  gulp.task('dev:build:views', function () {
+    return gulp.src(globs['views'])
       .pipe($.compileHandlebars(null, {
         batch: dirs['partials']
       }))
@@ -31,7 +31,7 @@ module.exports = function (gulp, $, config) {
       .pipe(browserSync.reload({ stream: true }));
   });
 
-  gulp.task('dev:build:css', function () {
+  gulp.task('dev:build:styles', function () {
     return gulp.src(globs['styles'])
       .pipe(handleErrors())
       .pipe($.sourcemaps.init())
@@ -44,7 +44,7 @@ module.exports = function (gulp, $, config) {
       .pipe(browserSync.reload({ stream: true }));
   });
 
-  gulp.task('dev:build:js', [ 'dev:lint' ], function () {
+  gulp.task('dev:build:scripts', [ 'dev:lint' ], function () {
     return gulp.src(globs['scripts'])
       .pipe(handleErrors())
       .pipe($.cached('scripts'))
@@ -80,11 +80,11 @@ module.exports = function (gulp, $, config) {
   });
 
   gulp.task('dev:watch', function () {
-    gulp.watch(globs['scripts'], [ 'build:js' ])
+    gulp.watch(globs['scripts'], [ 'dev:build:scripts' ])
       .on('changed', forget('scripts'));
 
-    gulp.watch(globs['less'],      [       'build:css' ]);
-    gulp.watch(globs['templates'], [ 'build:templates' ]);
+    gulp.watch(globs['styles'], [ 'dev:build:styles' ]);
+    gulp.watch(globs['views'],  [  'dev:build:views' ]);
   });
 
   gulp.task('dev:lint', function () {
@@ -96,10 +96,10 @@ module.exports = function (gulp, $, config) {
   });
 
   gulp.task('dev:build', [
+    'dev:build:views',
     'dev:build:bundle',
-    'dev:build:js',
-    'dev:build:templates',
-    'dev:build:css'
+    'dev:build:styles',
+    'dev:build:scripts'
   ]);
 
   gulp.task('dev', [
