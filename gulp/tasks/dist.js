@@ -6,10 +6,9 @@ var mainBowerFiles = require('main-bower-files');
 
 module.exports = function (gulp, $, config) {
 
-  var dirs             = config.dirs;
-  var globs            = config.globs;
-  var appcacheOptions  = config.appcacheOptions;
-  var minifyCssOptions = config.minifyCssOptions;
+  var dirs    = config.dirs;
+  var globs   = config.globs;
+  var options = config.pluginOptions;
 
   gulp.task('dist:clean', function (done) {
     del([ dirs['build'], dirs['dist'] ], done);
@@ -25,7 +24,7 @@ module.exports = function (gulp, $, config) {
   gulp.task('dist:styles', [ 'dev:build:styles' ], function () {
     return gulp.src(dirs['build'] + '/*.css')
       .pipe(handleErrors())
-      .pipe($.minifyCss(minifyCssOptions))
+      .pipe($.minifyCss(options['dist:styles']))
       .pipe($.rename({ extname: '.min.css' }))
       .pipe(gulp.dest(dirs['dist']));
   });
@@ -45,7 +44,7 @@ module.exports = function (gulp, $, config) {
     return gulp.src(globs['assets'])
       .pipe(handleErrors())
       .pipe(gulp.dest(dirs['dist']))
-      .pipe($.manifest(appcacheOptions))
+      .pipe($.manifest(options['dist:appcache']))
       .pipe(gulp.dest(dirs['dist']));
   });
 

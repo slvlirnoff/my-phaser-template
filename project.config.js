@@ -25,36 +25,38 @@ module.exports = {
     'scripts': SCRIPTS_GLOB
   },
 
-  'compilerOptions': {
-    modules: 'amd',
-    moduleIds: true,
-    format: {
-      comments: false,
-      compact: true
+  'pluginOptions': {
+    'dev:build:scripts': {
+      modules: 'amd',
+      moduleIds: true,
+      format: {
+        comments: false,
+        compact: true
+      }
+    },
+
+    'dist:styles': {
+      keepSpecialComments: false,
+      removeEmpty: true
+    },
+
+    'dist:appcache': {
+      filename: 'offline.appcache',
+      cache: [
+        'game.min.js',
+        'styles.min.css'
+      ],
+      preferOnline: true,
+      timestamp: true,
+      network: [
+        'https://*',
+        'http://*',
+        '*'
+      ],
+      fallback: [
+        '/ /index.html'
+      ]
     }
-  },
-
-  'minifyCssOptions': {
-    keepSpecialComments: false,
-    removeEmpty: true
-  },
-
-  'appcacheOptions': {
-    filename: 'offline.appcache',
-    cache: [
-      'game.min.js',
-      'style.min.css'
-    ],
-    preferOnline: true,
-    timestamp: true,
-    network: [
-      'https://*',
-      'http://*',
-      '*'
-    ],
-    fallback: [
-      '/ /index.html'
-    ]
   }
 
 };

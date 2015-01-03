@@ -6,9 +6,9 @@ var mainBowerFiles = require('main-bower-files');
 
 module.exports = function (gulp, $, config) {
 
-  var dirs            = config.dirs;
-  var globs           = config.globs;
-  var compilerOptions = config.compilerOptions;
+  var dirs    = config.dirs;
+  var globs   = config.globs;
+  var options = config.pluginOptions;
 
   // Forget any cached data
   // Reference: https://github.com/gulpjs/gulp/blob/master/docs/recipes/incremental-builds-with-concatenate.md
@@ -49,7 +49,7 @@ module.exports = function (gulp, $, config) {
       .pipe(handleErrors())
       .pipe($.cached('scripts'))
       .pipe($.sourcemaps.init())
-      .pipe($['6to5'](compilerOptions))
+      .pipe($['6to5'](options['dev:build:scripts']))
       .pipe($.remember('scripts'))
       .pipe($.concat('game.js'))
       .pipe($.sourcemaps.write('.'))
