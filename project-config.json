@@ -38,7 +38,7 @@
         "*"
       ],
       "fallback": [
-        "/ /index.html"
+        ". index.html"
       ]
     }
   }
