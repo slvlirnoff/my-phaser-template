@@ -4,11 +4,6 @@ var DIST     = 'dist';
 var STATIC   = 'static';
 var PARTIALS = SRC + '/views/partials';
 
-var VIEWS_GLOB   = SRC    + '/views/*.hbs';
-var STYLES_GLOB  = SRC    + '/styles/*.less';
-var ASSETS_GLOB  = STATIC + '/**';
-var SCRIPTS_GLOB = SRC    + '/scripts/**/*.js';
-
 module.exports = {
 
   'dirs': {
@@ -19,10 +14,10 @@ module.exports = {
   },
 
   'globs': {
-    'views'  : VIEWS_GLOB,
-    'styles' : STYLES_GLOB,
-    'assets' : ASSETS_GLOB,
-    'scripts': SCRIPTS_GLOB
+    'views'  : SRC    + '/views/*.hbs',
+    'styles' : SRC    + '/styles/*.less',
+    'assets' : STATIC + '/**',
+    'scripts': SRC    + '/scripts/**/*.js'
   },
 
   'pluginOptions': {
