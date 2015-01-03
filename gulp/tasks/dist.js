@@ -42,8 +42,12 @@ module.exports = function (gulp, $, config) {
 
   gulp.task('dist:assets', function () {
     return gulp.src(globs['assets'])
+      .pipe(gulp.dest(dirs['dist']));
+  });
+
+  gulp.task('dist:appcache', function () {
+    return gulp.src(globs['assets'])
       .pipe(handleErrors())
-      .pipe(gulp.dest(dirs['dist']))
       .pipe($.manifest(options['dist:appcache']))
       .pipe(gulp.dest(dirs['dist']));
   });
@@ -51,9 +55,10 @@ module.exports = function (gulp, $, config) {
   gulp.task('dist', function (done) {
     runSequence('dist:clean', [
       'dist:views',
+      'dist:assets',
       'dist:styles',
       'dist:scripts',
-      'dist:assets'
+      'dist:appcache'
     ], done);
   });
 
