@@ -6,31 +6,30 @@ var mainBowerFiles = require('main-bower-files');
 
 module.exports = function (gulp, $, config) {
 
-  var dirs             = config.dirs;
-  var globs            = config.globs;
-  var appcacheOptions  = config.appcacheOptions;
-  var minifyCssOptions = config.minifyCssOptions;
+  var dirs    = config.dirs;
+  var globs   = config.globs;
+  var options = config.pluginOptions;
 
-  gulp.task('dist:clean', function (cb) {
-    del([ dirs['build'], dirs['dist'] ], cb);
+  gulp.task('dist:clean', function (done) {
+    del([ dirs['build'], dirs['dist'] ], done);
   });
 
-  gulp.task('dist:templates', [ 'dev:build:templates' ], function () {
+  gulp.task('dist:views', [ 'dev:build:views' ], function () {
     return gulp.src(dirs['build'] + '/*.html')
       .pipe(handleErrors())
       .pipe($.processhtml())
       .pipe(gulp.dest(dirs['dist']));
   });
 
-  gulp.task('dist:css', [ 'dev:build:css' ], function () {
+  gulp.task('dist:styles', [ 'dev:build:styles' ], function () {
     return gulp.src(dirs['build'] + '/*.css')
       .pipe(handleErrors())
-      .pipe($.minifyCss(minifyCssOptions))
+      .pipe($.minifyCss(options['dist:styles']))
       .pipe($.rename({ extname: '.min.css' }))
       .pipe(gulp.dest(dirs['dist']));
   });
 
-  gulp.task('dist:js', [ 'dev:build:js' ], function () {
+  gulp.task('dist:scripts', [ 'dev:build:scripts' ], function () {
     var files = mainBowerFiles().concat(dirs['build'] + '/game.js');
 
     return gulp.src(files)
@@ -43,18 +42,23 @@ module.exports = function (gulp, $, config) {
 
   gulp.task('dist:assets', function () {
     return gulp.src(globs['assets'])
+      .pipe(gulp.dest(dirs['dist']));
+  });
+
+  gulp.task('dist:appcache', function () {
+    return gulp.src(globs['assets'])
       .pipe(handleErrors())
-      .pipe(gulp.dest(dirs['dist']))
-      .pipe($.manifest(appcacheOptions))
+      .pipe($.manifest(options['dist:appcache']))
       .pipe(gulp.dest(dirs['dist']));
   });
 
   gulp.task('dist', function (done) {
     runSequence('dist:clean', [
-      'dist:templates',
-      'dist:css',
-      'dist:js',
-      'dist:assets'
+      'dist:views',
+      'dist:assets',
+      'dist:styles',
+      'dist:scripts',
+      'dist:appcache'
     ], done);
   });
 

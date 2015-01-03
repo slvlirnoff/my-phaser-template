@@ -1,7 +1,7 @@
 var gulp   = require('gulp');
 var $      = require('gulp-load-plugins')();
 var tasks  = require('require-dir')('./gulp/tasks');
-var config = require('./project.config');
+var config = require('./project-config.json');
 
 for (var task in tasks)
   tasks[task](gulp, $, config);
