@@ -61,8 +61,9 @@ module.exports = function (gulp, $, config, deps) {
       .concat(mainBowerFiles());
 
     return gulp.src(libs)
-      .pipe($.concat('bower-libs.js'))
-      .pipe(gulp.dest(dirs['build']));
+      .pipe($.concat('bundle.js'))
+      .pipe(gulp.dest(dirs['build']))
+      .pipe(browserSync.reload({ stream: true }));
   });
 
   gulp.task('dev:server', [ 'dev:build' ], function () {
@@ -84,6 +85,7 @@ module.exports = function (gulp, $, config, deps) {
 
     gulp.watch(globs['styles'], [ 'dev:build:styles' ]);
     gulp.watch(globs['views'],  [  'dev:build:views' ]);
+    gulp.watch('bower.json',    [ 'dev:build:bundle' ]);
   });
 
   gulp.task('dev:lint', function () {

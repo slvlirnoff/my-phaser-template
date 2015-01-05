@@ -28,15 +28,19 @@ module.exports = function (gulp, $, config, deps) {
       .pipe(gulp.dest(dirs['dist']));
   });
 
-  gulp.task('dist:scripts', [ 'dev:build:scripts' ], function () {
-    var files = mainBowerFiles().concat(dirs['build'] + '/game.js');
-
-    return gulp.src(files)
-      .pipe($.sourcemaps.init())
-      .pipe($.concat('game.min.js'))
-      .pipe($.uglify())
-      .pipe($.sourcemaps.write('.'))
-      .pipe(gulp.dest(dirs['dist']));
+  gulp.task(
+    'dist:scripts',
+    [ 'dev:build:bundle', 'dev:build:scripts' ],
+    function () {
+      return gulp.src([
+        dirs['build'] + '/bundle.js',
+        dirs['build'] + '/game.js'
+      ])
+        .pipe($.sourcemaps.init())
+        .pipe($.concat('game.min.js'))
+        .pipe($.uglify())
+        .pipe($.sourcemaps.write('.'))
+        .pipe(gulp.dest(dirs['dist']));
   });
 
   gulp.task('dist:assets', function () {
