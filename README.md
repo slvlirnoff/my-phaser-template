@@ -55,6 +55,8 @@ All source code distributed under the terms of the [MIT License][lcnc].
 Parts of this project are based on [slush-phaser-project][sspp], by [Sean
 Bohan (@pixelpicosean)][ppsn].
 
+Some code borrowed from `[gulp-starter][gsdt]`, by Daniel Tello.
+
 
 <!-- ---------------------------------------------------------------------- -->
 
@@ -68,6 +70,7 @@ Bohan (@pixelpicosean)][ppsn].
 [feat]: https://6to5.org/features.html
 [ppsn]: https://github.com/pixelpicosean/
 [lofr]: http://mozilla.github.io/localForage/
+[gsdt]: https://github.com/greypants/gulp-starter/
 [sspp]: https://github.com/pixelpicosean/slush-phaser-project
 [dwld]: https://github.com/rblopes/my-phaser-template/archive/master.zip
 [lcnc]: https://github.com/rblopes/my-phaser-template/blob/master/LICENSE
