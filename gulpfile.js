@@ -1,6 +1,6 @@
 var gulp    = require('gulp');
 var plugins = require('gulp-load-plugins')();
-var tasks   = require('require-dir')('./gulp/tasks');
+var tasks   = require('require-dir')('./lib/tasks');
 var config  = require('./project-config.json');
 
 var taskDeps = {
@@ -8,7 +8,7 @@ var taskDeps = {
   'browserSync'    : require('browser-sync'),
   'runSequence'    : require('run-sequence'),
   'autoprefixer'   : require('autoprefixer-core'),
-  'handleErrors'   : require('./gulp/util/handleErrors'),
+  'handleErrors'   : require('./lib/utils/handleErrors'),
   'mainBowerFiles' : require('main-bower-files')
 };
 
