@@ -58,7 +58,7 @@ All source code distributed under the terms of the [MIT License][lcnc].
 Parts of this project are based on [slush-phaser-project][sspp], by [Sean
 Bohan (@pixelpicosean)][ppsn].
 
-Some code borrowed from `[gulp-starter][gsdt]`, by Daniel Tello.
+Some code borrowed from [gulp-starter][gsdt], by Daniel Tello.
 
 
 <!-- ---------------------------------------------------------------------- -->
