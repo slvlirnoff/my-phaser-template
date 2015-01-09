@@ -16,7 +16,7 @@ export default {
     this.stage.backgroundColor = '#333';
 
     this.add.tween(this.add.image(0, 96, 'credits'))
-      .from({ y: -96 }, 2000, Phaser.Easing.Elastic.Out)
+      .from({ y: -96 }, 2000, 'Elastic.easeOut')
       .start();
 
     this.add.tween(this.makeCreditsLabel(this.world.centerX, 240, text))

@@ -14,7 +14,7 @@ export default {
     this.stage.backgroundColor = 0x333333;
 
     this.add.tween(this.add.image(0, 153, 'title'))
-      .from({ y: -200 }, 2000, Phaser.Easing.Elastic.Out)
+      .from({ y: -200 }, 2000, 'Elastic.easeOut')
       .start();
 
     this.add.existing(this.makeStartButton(240, 544));

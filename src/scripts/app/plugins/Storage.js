@@ -5,6 +5,10 @@
  */
 
 
+import Phaser      from 'Phaser';
+import localforage from 'localforage';
+
+
 /**
  *  Wrapper plugin for Mozilla's {@link http://mozilla.github.io/localForage/|localForage} offline storage library.
  *

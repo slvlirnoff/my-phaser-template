@@ -20,7 +20,7 @@ export default {
     this.stage.backgroundColor = '#333';
 
     this.add.tween(this.add.image(118, 96, 'levels', 'label'))
-      .from({ y: -150 }, 2000, Phaser.Easing.Elastic.Out)
+      .from({ y: -150 }, 2000, 'Elastic.easeOut')
       .start();
 
     for (let { x, y, level } of levelButtonPositions)

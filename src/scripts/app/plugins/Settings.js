@@ -6,6 +6,9 @@
  */
 
 
+import Phaser from 'Phaser';
+
+
 class Settings extends Phaser.Plugin {
 
   init (data) {

@@ -7,6 +7,9 @@
  */
 
 
+import Phaser from 'Phaser';
+
+
 class Preloader extends Phaser.Group {
 
   constructor (game) {

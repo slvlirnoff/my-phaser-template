@@ -1,3 +1,6 @@
+import Phaser from 'Phaser';
+
+
 import Boot    from './app/states/Boot';
 import Preload from './app/states/Preload';
 import Menu    from './app/states/Menu';
