@@ -1,0 +1,14 @@
+{
+  "name": "my-phaser-template",
+  "dependencies": {
+    "almond": "~0.3.0",
+    "localforage": "~1.2.0",
+    "phaser": "~2.2.2"
+  },
+  "overrides": {
+    "phaser": {
+      "main": "build/custom/phaser-arcade-physics.js"
+    }
+  },
+  "private": true
+}
