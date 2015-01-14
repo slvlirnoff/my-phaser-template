@@ -55,8 +55,10 @@ License
 
 All source code distributed under the terms of the [MIT License][lcnc].
 
-Parts of this project are based on [slush-phaser-project][sspp], by [Sean
-Bohan (@pixelpicosean)][ppsn].
+This project is based upon earlier efforts by these two brilliant developers:
+
+- [slush-phaser-node][sspn], by [Matt Gale (@Eruant)][matt], and
+- [slush-phaser-project][sspp], by [Sean Bohan (@pixelpicosean)][ppsn].
 
 Some code borrowed from [gulp-starter][gsdt], by Daniel Tello.
 
@@ -71,11 +73,13 @@ Some code borrowed from [gulp-starter][gsdt], by Daniel Tello.
 [less]: http://lesscss.org/
 [edcf]: http://editorconfig.org/
 [hbs.]: http://handlebarsjs.com/
+[matt]: https://github.com/Eruant
 [bsnc]: http://www.browsersync.io/
 [feat]: https://6to5.org/features.html
 [ppsn]: https://github.com/pixelpicosean/
 [lofr]: http://mozilla.github.io/localForage/
 [gsdt]: https://github.com/greypants/gulp-starter/
+[sspn]: https://github.com/Eruant/slush-phaser-node
 [sspp]: https://github.com/pixelpicosean/slush-phaser-project
 [dwld]: https://github.com/rblopes/my-phaser-template/archive/master.zip
 [lcnc]: https://github.com/rblopes/my-phaser-template/blob/master/LICENSE

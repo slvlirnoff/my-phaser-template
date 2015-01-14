@@ -2,6 +2,16 @@ Change Log
 ===============================================================================
 
 
+v0.1.1
+-------------------------------------------------------------------------------
+
+*   Force UTF-8 encoding by default in new files
+*   Comments as hints in task files
+*   Avoid including non-JS files in `bundle.js`
+*   Crediting @Eruant in the README
+*   Dependency upgrades
+
+
 v0.1.0
 -------------------------------------------------------------------------------
 
