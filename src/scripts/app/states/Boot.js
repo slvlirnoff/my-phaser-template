@@ -21,7 +21,7 @@ import Storage  from '../plugins/Storage';
 import Settings from '../plugins/Settings';
 
 
-export default {
+export default class Boot extends Phaser.State {
 
   // Remember that this is the very first method ran by Phaser in whatever
   // state object or class.
@@ -42,19 +42,19 @@ export default {
     // And we call `gameSetup` to adjust things like the screen orientation
     // handling, the number of pointers the game input will respond to etc.
     this.gameSetup();
-  },
+  }
 
   preload () {
     // At this step, we ask Phaser to load the necessary assets to display our
     // preloader later.
     this.load.pack('boot', null, assets);
-  },
+  }
 
   create () {
     // Immediately after asking Phaser to load the boot assets, we call the
     // next game state.
     this.state.start('Preload');
-  },
+  }
 
   // --------------------------------------------------------------------------
 
@@ -71,7 +71,7 @@ export default {
 
     // Fetch game settings from local storage.
     this.game.storage.getItem('settings', this.restoreSettings, this);
-  },
+  }
 
   // This is the callback invoked by the Storage plugin when fetching the game
   // settings.
@@ -80,4 +80,4 @@ export default {
       this.game.settings.load(data);
   }
 
-};
+}

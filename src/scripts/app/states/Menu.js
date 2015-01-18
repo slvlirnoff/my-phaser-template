@@ -6,7 +6,7 @@
  */
 
 
-export default {
+export default class Menu extends Phaser.State {
 
   create () {
     // Give a gray shade to the background, show the title logo and the "Start"
@@ -19,7 +19,7 @@ export default {
 
     this.add.existing(this.makeStartButton(240, 544));
     this.add.existing(this.makeCreditsButton(352, 544));
-  },
+  }
 
   // --------------------------------------------------------------------------
 
@@ -31,22 +31,22 @@ export default {
     button.input.useHandCursor = true;
 
     return button;
-  },
+  }
 
   makeStartButton (x, y) {
     return this.makeButton(x, y, 'button-start', this.showLevelSelection);
-  },
+  }
 
   makeCreditsButton (x, y) {
     return this.makeButton(x, y, 'button-menu', this.showCredits);
-  },
+  }
 
   showLevelSelection () {
     this.state.start('Levels');
-  },
+  }
 
   showCredits () {
     this.state.start('Credits');
   }
 
-};
+}

@@ -1,6 +1,5 @@
 import Phaser from 'Phaser';
 
-
 import Boot    from './app/states/Boot';
 import Preload from './app/states/Preload';
 import Menu    from './app/states/Menu';
@@ -12,12 +11,15 @@ import Game    from './app/states/Game';
 export function start () {
   var game = new Phaser.Game(480, 720, Phaser.AUTO);
 
-  game.state.add('Boot',    Boot);
-  game.state.add('Preload', Preload);
-  game.state.add('Menu',    Menu);
-  game.state.add('Credits', Credits);
-  game.state.add('Levels',  Levels);
-  game.state.add('Game',    Game);
+  // Adding game states to Phaser can be as simple as that.
+  [
+    [ 'Boot'   , Boot    ],
+    [ 'Preload', Preload ],
+    [ 'Menu'   , Menu    ],
+    [ 'Credits', Credits ],
+    [ 'Levels' , Levels  ],
+    [ 'Game'   , Game    ]
+  ].map(([ name, state ]) => game.state.add(name, state));
 
   game.state.start('Boot');
 
