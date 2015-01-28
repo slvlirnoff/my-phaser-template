@@ -19,7 +19,7 @@
     "gulp-less": "^2.0.1",
     "gulp-load-plugins": "^0.8.0",
     "gulp-manifest": "0.0.6",
-    "gulp-minify-css": "^0.3.7",
+    "gulp-minify-css": "^0.4.3",
     "gulp-notify": "^2.0.1",
     "gulp-plumber": "^0.6.5",
     "gulp-postcss": "^4.0.1",
