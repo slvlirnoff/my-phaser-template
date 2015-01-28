@@ -18,7 +18,7 @@ import assets from '../data/assets';
 import Preloader from '../objects/Preloader';
 
 
-export default {
+export default class Preload extends Phaser.State {
 
   init () {
     // In this example, we depend on WebAudio for playing sounds effects. So,
@@ -29,7 +29,7 @@ export default {
     // Also, this helper flag is used to hold the state manager until all
     // assets have been preloaded.
     this.assetsReady = false;
-  },
+  }
 
   preload () {
     // Display the Preloader.
@@ -38,18 +38,18 @@ export default {
     // Load all remaining audio and graphical assets.
     this.loadGraphicalAssets();
     this.loadAudioAssets();
-  },
+  }
 
   create () {
     this.assetsReady = true;
-  },
+  }
 
   update () {
     // Now, we wait until all sound effects have been decoded into memory,
     // then skip to the Menu screen.
     if (this.assetsReady && this.allSoundsDecoded)
       this.state.start('Menu');
-  },
+  }
 
   // --------------------------------------------------------------------------
 
@@ -60,18 +60,18 @@ export default {
       return assets['sfx'].map(sfx => sfx.key);
 
     return [];
-  },
+  }
 
   preparePreloadStage () {
     var preloader = new Preloader(this.game);
 
     this.load.setPreloadSprite(preloader.preloaderFiller);
-  },
+  }
 
   loadGraphicalAssets () {
     // Another `load#pack` call to load our game assets.
     this.load.pack('game', null, assets);
-  },
+  }
 
   loadAudioAssets () {
     // Here, we tell Phaser that, if there's WebAudio support, to load all
@@ -81,7 +81,7 @@ export default {
       this.load.pack('sfx', null, assets);
       this.sound.onSoundDecode.add(this.dequeueDecodedSound, this);
     }
-  },
+  }
 
   dequeueDecodedSound (key) {
     // Take out the key name of the last decoded sound effect from our list.
@@ -89,18 +89,18 @@ export default {
 
     if (position > -1)
       this.soundsToDecode.splice(position, 1);
-  },
+  }
 
   // --------------------------------------------------------------------------
 
   // Do we have WebAudio available?
   get webAudioSupported () {
     return this.game.device.webAudio;
-  },
+  }
 
   // Are we done decoding sounds?
   get allSoundsDecoded () {
     return this.soundsToDecode.length === 0;
   }
 
-};
+}

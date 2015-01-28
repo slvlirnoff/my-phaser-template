@@ -9,7 +9,7 @@
 import RotatingLogo from '../objects/RotatingLogo';
 
 
-export default {
+export default class Game extends Phaser.State {
 
   init (level) {
     // You can pass as many arguments as needed to a state prior to its
@@ -23,7 +23,7 @@ export default {
 
     // `this.state.start(stateName, true, false, ...)`
     this.level = level;
-  },
+  }
 
   create () {
     // Below follows a little ES6 snippet, to show you not just classes and
@@ -47,12 +47,12 @@ export default {
 
     // For demonstration purposes, every 3s a new level will be unlocked.
     this.time.events.add(3000, this.unlockNextLevel, this);
-  },
+  }
 
   update () {
     // See, this is just a demonstration game, so we have nothing much to do
     // here. Now, it's your time to create an awesome game!
-  },
+  }
 
   // --------------------------------------------------------------------------
 
@@ -64,25 +64,25 @@ export default {
     button.input.useHandCursor = true;
 
     return button;
-  },
+  }
 
   makeBackButton (x, y) {
     return this.makeButton(x, y, 'button-back', this.showLevelSelection);
-  },
+  }
 
   makeRotatingLogo (x, y, speed = 4000) {
     return new RotatingLogo(this.game, x, y, speed);
-  },
+  }
 
   placeLogo ({ x, y }) {
     // This method uses object destructuring right in the parameters, so we can
     // take only the object properties we are interested in.
     this.rotatingLogo.reset(x, y);
-  },
+  }
 
   showLevelSelection () {
     this.state.start('Levels');
-  },
+  }
 
   unlockNextLevel () {
     if (this.level < 4) {
@@ -91,11 +91,11 @@ export default {
       this.game.storage.setItem(
         'settings', this.game.settings.data, this.nextLevelUnlocked, this);
     }
-  },
+  }
 
   nextLevelUnlocked (err) {
     if (!err)
       console.log('Unlocking game level number #%d', this.level + 2);
   }
 
-};
+}
