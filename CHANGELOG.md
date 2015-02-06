@@ -2,6 +2,20 @@ Change Log
 ===============================================================================
 
 
+v0.1.3
+-------------------------------------------------------------------------------
+
+*   Solve issue #1, where 6to5 may compile code with syntax errors formatted 
+    with the `compact` option (thanks @dfyx)
+
+
+v0.1.2
+-------------------------------------------------------------------------------
+
+*   Reverted game states to class instances
+*   Upgraded some development dependencies, 6to5
+
+
 v0.1.1
 -------------------------------------------------------------------------------
 

@@ -25,8 +25,8 @@ What's included?
 *   [6to5][6to5] to translate from ES6 to ES5 syntax.
     See which [language features][feat] are currently supported.
 
-*   [Handlebars][hbs.] templates, [LESS][less] style sheets, offline cache and
-    much more!
+*   [Handlebars][hbs.] templates, [LESS][less] style sheets, source maps
+    support, off-line cache and much more!
 
 
 This template includes a sample game, presenting some of the features you can
