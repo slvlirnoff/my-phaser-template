@@ -23,8 +23,7 @@
       "modules": "amd",
       "moduleIds": true,
       "format": {
-        "comments": false,
-        "compact": true
+        "comments": false
       }
     },
     "dist:styles": {
