@@ -1,6 +1,6 @@
 {
   "name": "my-phaser-template",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "private": true,
   "description": "A Phaser project template, featuring 6to5 and localForage.",
   "devDependencies": {
