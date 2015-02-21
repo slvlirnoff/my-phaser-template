@@ -20,13 +20,14 @@ What's included?
 
 *   [Bower][bowr] for easy component management.
 
-*   [localForage][lofr] for client-side data storage, including Phaser plugin.
+*   [localForage][lofr] for client-side data storage, including a sample Phaser
+    wrapper plug-in.
 
 *   [Babel][babl] to translate from ES6 to ES5 syntax.
     See which [language features][feat] are currently supported.
 
-*   [Handlebars][hbs.] templates, [LESS][less] style sheets, source maps
-    support, off-line cache and much more!
+*   [Handlebars][hbs.] templates, [LESS][less] style sheets, support for source
+    maps output, off-line cache and much more!
 
 
 This template includes a sample game, presenting some of the features you can
@@ -42,10 +43,13 @@ performing the tasks described below.
 
 ```sh
 npm install   # Installs all required project dependencies.
-npm start     # Launches the development server.
-npm run dist  # Prepare the game release for distribution.
-npm run clean # Wipes the project from temporary and distribution build files.
+npm start     # Launch a development server. Same as `gulp dev`.
+npm run dist  # Prepare the game release for distribution. Also `gulp dist`.
+npm run clean # Delete temporary and distribution build files.
 ```
+
+<small>Also, you may want to install Gulp and Bower globally, but you are not
+required to do so.</small>
 
 Happy coding!
 
