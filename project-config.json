@@ -21,10 +21,7 @@
   "pluginOptions": {
     "dev:build:scripts": {
       "modules": "amd",
-      "moduleIds": true,
-      "format": {
-        "comments": false
-      }
+      "moduleIds": true
     },
     "dist:styles": {
       "keepSpecialComments": false,
