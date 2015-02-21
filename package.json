@@ -2,7 +2,7 @@
   "name": "my-phaser-template",
   "version": "0.1.5",
   "private": true,
-  "description": "A Phaser project template, featuring 6to5 and localForage.",
+  "description": "A Phaser project template, featuring Babel and localForage.",
   "devDependencies": {
     "autoprefixer-core": "^5.0.0",
     "babel-core": "^4.0.0",

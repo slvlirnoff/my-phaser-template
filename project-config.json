@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "My Awesome Game",
-    "description": "A Phaser project template, featuring 6to5 and localForage."
+    "description": "A Phaser project template, featuring Babel and localForage."
   },
   "dirs": {
     "dist"    : "dist",
