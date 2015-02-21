@@ -1,7 +1,7 @@
 My Phaser Template
 ===============================================================================
 
->   A project template for [Phaser][phsr] games, featuring 6to5 and
+>   A project template for [Phaser][phsr] games, featuring Babel and
 >   localForage.
 
 
@@ -22,7 +22,7 @@ What's included?
 
 *   [localForage][lofr] for client-side data storage, including Phaser plugin.
 
-*   [6to5][6to5] to translate from ES6 to ES5 syntax.
+*   [Babel][babl] to translate from ES6 to ES5 syntax.
     See which [language features][feat] are currently supported.
 
 *   [Handlebars][hbs.] templates, [LESS][less] style sheets, source maps
@@ -67,7 +67,7 @@ Some code borrowed from [gulp-starter][gsdt], by Daniel Tello.
 
 [bowr]: http://bower.io/
 [phsr]: http://phaser.io/
-[6to5]: https://6to5.org/
+[babl]: https://babeljs.io/
 [gulp]: http://gulpjs.com/
 [jsht]: http://jshint.com/
 [less]: http://lesscss.org/
@@ -75,7 +75,7 @@ Some code borrowed from [gulp-starter][gsdt], by Daniel Tello.
 [hbs.]: http://handlebarsjs.com/
 [matt]: https://github.com/Eruant
 [bsnc]: http://www.browsersync.io/
-[feat]: https://6to5.org/features.html
+[feat]: http://babeljs.io/docs/learn-es6/
 [ppsn]: https://github.com/pixelpicosean/
 [lofr]: http://mozilla.github.io/localForage/
 [gsdt]: https://github.com/greypants/gulp-starter/
