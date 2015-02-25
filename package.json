@@ -14,7 +14,7 @@
     "gulp-cached": "^1.0.1",
     "gulp-compile-handlebars": "^0.4.4",
     "gulp-concat": "^2.3.4",
-    "gulp-if": "^1.2.5",
+    "gulp-filter": "^2.0.2",
     "gulp-jshint": "^1.8.4",
     "gulp-less": "^3.0.0",
     "gulp-load-plugins": "^0.8.0",
