@@ -4,7 +4,7 @@ My Awesome (Sample) Game
 Hi there!
 
 This is just a small game, to show you some of the [current features][feat] of
-6to5 that may help you creating good looking, performant games. You could use
+Babel that may help you creating good looking, performant games. You could use
 this as the foundation of your own game, or scrap the whole thing and start
 coding whatever you like right away.
 
@@ -47,19 +47,6 @@ package override for Phaser is the same as using the standard Phaser library
 file.
 
 
-Planned Updates
--------------------------------------------------------------------------------
-
-### Missing Features ##########################################################
-
-*   Handle screen orientation changes.
-*   Include simple sound effects.
-
-<!-- 
-### Fixes and Improvements ####################################################
--->
-
-
 <!--  --------------------------------------------------------------------- -->
 
-[feat]: https://6to5.org/features.html
+[feat]: http://babeljs.io/docs/learn-es6/
