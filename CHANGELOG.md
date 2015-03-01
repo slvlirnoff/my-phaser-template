@@ -2,6 +2,17 @@ Change Log
 ===============================================================================
 
 
+v0.1.6
+-------------------------------------------------------------------------------
+
+*   Make incremental builds actually work
+*   Remove obsolete Babel `format` option from project configuration
+*   Update mentions to Babel in project metadata and README, some other minor 
+    changes
+*   Use `gulp-filter` instead of `gulp-if` when filtering bundled scripts
+*   Upgrade `gulp-minify-css`
+
+
 v0.1.5
 -------------------------------------------------------------------------------
 
