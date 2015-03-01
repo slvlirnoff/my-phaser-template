@@ -3,30 +3,30 @@ My Awesome (Sample) Game
 
 Hi there!
 
-This is just a small game, to show you some of the [current features][feat] of
-6to5 that may help you creating good looking, performant games. You could use
-this as the foundation of your own game, or scrap the whole thing and start
+This small game is here to introduce you some of the Babel [features][feat]
+that may help you creating good looking, performant games. You could use this
+as the foundation of your own game, or just discard the whole thing and start
 coding whatever you like right away.
 
 Now, I don't know what you'll create, neither the kind of game you want to
 accomplish here. Remember, though, this project is here for you to take its
-best parts from it and create your own, marvelous game. Feel free to change
+best parts from it and create your own, marvelous game. So feel free to change
 anything you want.
 
-Besides that, take some minutes to look at the source code and see the sample
-game in action. I hope you find it useful.
+Besides that, please take some minutes to look at the source code and see the
+sample game in action. I hope you'll find it useful.
 
-If something is broken or not working properly, file an issue detailing the
-problem you found.
+If something is broken or not working properly, please file an issue detailing
+the problem you found.
 
 
 Arcade Physics by default
 -------------------------------------------------------------------------------
 
 Even though this sample game doesn't include any physics-related logic, this
-template was prepared to use the Arcade Physics custom library by default. This
-is accomplished by inserting the following override hash under the `bower.json`
-package manifest:
+template was prepared to use the Arcade Physics-only custom build. This is
+accomplished by inserting the following override hash under the `bower.json`
+package manifest file:
 
 ```js
 {
@@ -41,25 +41,13 @@ package manifest:
 ```
 
 If you're planning to use another physics system, or don't want to use any of
-the physics systems provided by Phaser, simply change that line to include the
-custom library provided by the Phaser package. Remember that by removing the
-package override for Phaser is the same as using the standard Phaser library
-file.
-
-
-Planned Updates
--------------------------------------------------------------------------------
-
-### Missing Features ##########################################################
-
-*   Handle screen orientation changes.
-*   Include simple sound effects.
-
-<!-- 
-### Fixes and Improvements ####################################################
--->
+the physics systems provided with Phaser, simply replace the custom build path
+with another one included with the Phaser package. Remember that by removing
+the package override for Phaser is the same as using the standard Phaser build
+file, which indeed includes the Arcade Physics and the P2 Physics systems by
+default.
 
 
 <!--  --------------------------------------------------------------------- -->
 
-[feat]: https://6to5.org/features.html
+[feat]: http://babeljs.io/docs/learn-es6/

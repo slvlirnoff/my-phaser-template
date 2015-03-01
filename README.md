@@ -1,7 +1,7 @@
 My Phaser Template
 ===============================================================================
 
->   A project template for [Phaser][phsr] games, featuring 6to5 and
+>   A project template for [Phaser][phsr] games, featuring Babel and
 >   localForage.
 
 
@@ -20,13 +20,14 @@ What's included?
 
 *   [Bower][bowr] for easy component management.
 
-*   [localForage][lofr] for client-side data storage, including Phaser plugin.
+*   [localForage][lofr] for client-side data storage, including a sample Phaser
+    wrapper plug-in.
 
-*   [6to5][6to5] to translate from ES6 to ES5 syntax.
+*   [Babel][babl] to translate from ES6 to ES5 syntax.
     See which [language features][feat] are currently supported.
 
-*   [Handlebars][hbs.] templates, [LESS][less] style sheets, source maps
-    support, off-line cache and much more!
+*   [Handlebars][hbs.] templates, [LESS][less] style sheets, support for source
+    maps output, off-line cache and much more!
 
 
 This template includes a sample game, presenting some of the features you can
@@ -42,10 +43,13 @@ performing the tasks described below.
 
 ```sh
 npm install   # Installs all required project dependencies.
-npm start     # Launches the development server.
-npm run dist  # Prepare the game release for distribution.
-npm run clean # Wipes the project from temporary and distribution build files.
+npm start     # Launch a development server. Same as `gulp dev`.
+npm run dist  # Prepare the game release for distribution. Also `gulp dist`.
+npm run clean # Delete temporary and distribution build files.
 ```
+
+<small>Also, you may want to install Gulp and Bower globally, but you are not
+required to do so.</small>
 
 Happy coding!
 
@@ -67,7 +71,7 @@ Some code borrowed from [gulp-starter][gsdt], by Daniel Tello.
 
 [bowr]: http://bower.io/
 [phsr]: http://phaser.io/
-[6to5]: https://6to5.org/
+[babl]: https://babeljs.io/
 [gulp]: http://gulpjs.com/
 [jsht]: http://jshint.com/
 [less]: http://lesscss.org/
@@ -75,7 +79,7 @@ Some code borrowed from [gulp-starter][gsdt], by Daniel Tello.
 [hbs.]: http://handlebarsjs.com/
 [matt]: https://github.com/Eruant
 [bsnc]: http://www.browsersync.io/
-[feat]: https://6to5.org/features.html
+[feat]: http://babeljs.io/docs/learn-es6/
 [ppsn]: https://github.com/pixelpicosean/
 [lofr]: http://mozilla.github.io/localForage/
 [gsdt]: https://github.com/greypants/gulp-starter/
