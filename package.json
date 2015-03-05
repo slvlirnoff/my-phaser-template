@@ -1,6 +1,6 @@
 {
   "name": "my-phaser-template",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "private": true,
   "description": "A Phaser project template, featuring Babel and localForage.",
   "devDependencies": {
@@ -23,7 +23,7 @@
     "gulp-notify": "^2.0.1",
     "gulp-plumber": "^0.6.5",
     "gulp-postcss": "^4.0.1",
-    "gulp-processhtml": "^1.0.2",
+    "gulp-processhtml": "^1.1.0",
     "gulp-remember": "^0.3.0",
     "gulp-rename": "^1.2.0",
     "gulp-sourcemaps": "^1.1.5",
