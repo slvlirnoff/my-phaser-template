@@ -4,8 +4,8 @@ import Phaser from 'Phaser';
 import * as states from './app/states';
 
 
-export function start () {
-  var game = new Phaser.Game(480, 720, Phaser.AUTO);
+export default function () {
+  let game = new Phaser.Game(480, 720, Phaser.AUTO);
 
   // Dynamically adding all required game states.
   Object.keys(states)
