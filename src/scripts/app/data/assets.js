@@ -33,20 +33,20 @@ export default {
   'boot': [
 
     {
-      'key': 'preloader-background',
+      'key': 'splash-screen',
       'type': 'image',
-      'url': 'images/preloader-background.png'
+      'url': 'images/splash-screen.png'
     },
 
     {
-      'key': 'preloader-bar',
+      'key': 'progress-bar',
       'type': 'spritesheet',
       'frameWidth': 352,
       'frameHeight': 32,
       'frameMax': 2,
       'margin': 8,
       'spacing': 8,
-      'url': 'images/preloader-bar.png'
+      'url': 'images/progress-bar.png'
     }
 
   ],

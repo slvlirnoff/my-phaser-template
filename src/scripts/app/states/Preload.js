@@ -11,11 +11,11 @@
 // including graphics, music and sound effects.
 import assets from '../data/assets';
 
-// Then, to make matters easier, I prepared a Preloader prefab, which only
+// Then, to make matters easier, I prepared a SplashScreen prefab, which only
 // purpose is displaying the decorated, loading screen with the charging
 // progress bar, telling at which rate our assets have been loaded. Hopefully,
 // that will last long enough so our preloader will just blink on the screen ;)
-import Preloader from '../objects/Preloader';
+import SplashScreen from '../objects/SplashScreen';
 
 
 export default class Preload extends Phaser.State {
@@ -32,8 +32,7 @@ export default class Preload extends Phaser.State {
   }
 
   preload () {
-    // Display the Preloader.
-    this.preparePreloadStage();
+    this.showSplashScreen();
 
     // Load all remaining audio and graphical assets.
     this.loadGraphicalAssets();
@@ -62,10 +61,10 @@ export default class Preload extends Phaser.State {
     return [];
   }
 
-  preparePreloadStage () {
-    var preloader = new Preloader(this.game);
+  showSplashScreen () {
+    let splashScreen = new SplashScreen(this.game);
 
-    this.load.setPreloadSprite(preloader.preloaderFiller);
+    this.load.setPreloadSprite(splashScreen.progressFiller);
   }
 
   loadGraphicalAssets () {
