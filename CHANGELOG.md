@@ -2,6 +2,17 @@ Change Log
 ===============================================================================
 
 
+v0.1.9
+-------------------------------------------------------------------------------
+
+*   Upgrading gulp plugins: `gulp-load-plugins`, `require-dir`
+*   Return `Promise`s from storage plugin
+*   Expose game states through a module, add them dynamically
+*   New: `SplashScreen` class
+*   Simplify game launching code
+*   Renaming web application manifest file
+
+
 v0.1.8
 -------------------------------------------------------------------------------
 
