@@ -7,18 +7,14 @@
 
 
 var notify  = require('gulp-notify');
-var plumber = require('gulp-plumber');
 
 
-module.exports = function () {
-  return plumber(function () {
-    // Send error to notification center with gulp-notify
-    notify.onError({
-      title: 'Compile Error',
-      message: '<' + '%= error %' + '>'
-    }).apply(this, arguments);
+module.exports = function (errorObject) {
+  notify.onError(
+    errorObject.toString().split(': ').join(':\n')).apply(this, arguments);
 
-    // Keep gulp from hanging on this task
+  // Keep gulp from hanging on this task
+  if (typeof this.emit === 'function') {
     this.emit('end');
-  });
+  }
 };

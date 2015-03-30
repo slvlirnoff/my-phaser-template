@@ -38,9 +38,9 @@ module.exports = function (gulp, $, config) {
   // Compile style sheet templates, prefix proposed and non-standard rules.
   gulp.task('dev:build:styles', function () {
     return gulp.src(globs['styles'])
-      .pipe(handleErrors())
       .pipe($.sourcemaps.init())
       .pipe($.less())
+      .on('error', handleErrors)
       .pipe($.postcss([
         autoprefixer()
       ]))
@@ -52,10 +52,10 @@ module.exports = function (gulp, $, config) {
   // Compile script files as AMD, bundle them as a single file.
   gulp.task('dev:build:scripts', [ 'dev:lint' ], function () {
     return gulp.src(globs['scripts'])
-      .pipe(handleErrors())
       .pipe($.cached('scripts'))
       .pipe($.sourcemaps.init())
       .pipe($.babel(options['dev:build:scripts']))
+      .on('error', handleErrors)
       .pipe($.remember('scripts'))
       .pipe($.concat('game.js'))
       .pipe($.sourcemaps.write('.'))
@@ -106,7 +106,6 @@ module.exports = function (gulp, $, config) {
   // non-conformances.
   gulp.task('dev:lint', function () {
     return gulp.src([ globs['scripts'] ])
-      .pipe(handleErrors())
       .pipe($.cached('jshint'))
       .pipe($.jshint('.jshintrc'))
       .pipe($.jshint.reporter('jshint-stylish'));
