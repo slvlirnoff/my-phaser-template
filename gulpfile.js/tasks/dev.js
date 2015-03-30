@@ -5,7 +5,7 @@ module.exports = function (gulp, $, config) {
 
   var browserSync    = require('browser-sync');
   var autoprefixer   = require('autoprefixer-core');
-  var handleErrors   = require('../utils/handleErrors');
+  var handleErrors   = require('../lib/handleErrors');
   var mainBowerFiles = require('main-bower-files');
 
   var meta    = config.meta;
