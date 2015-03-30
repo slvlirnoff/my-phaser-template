@@ -14,9 +14,6 @@
  */
 
 
-import Phaser from 'Phaser';
-
-
 class RotatingLogo extends Phaser.Sprite {
 
   constructor (game, x, y, interval = 4000) {

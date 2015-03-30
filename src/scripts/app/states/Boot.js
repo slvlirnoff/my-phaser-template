@@ -7,9 +7,6 @@
  */
 
 
-import Phaser from 'Phaser';
-
-
 // Firstly, we import the modules this class depends on. The `assets` module
 // contains data about the boot and in game assets we'll need soon.
 // `defaultSettings` contains data related to the game initial configuration.

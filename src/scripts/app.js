@@ -1,5 +1,3 @@
-import Phaser from 'Phaser';
-
 // Import all declared states from this module into an object.
 import * as states from './app/states';
 
