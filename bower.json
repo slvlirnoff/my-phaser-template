@@ -1,9 +1,9 @@
 {
   "name": "my-phaser-template",
   "dependencies": {
+    "phaser": "~2.3.0",
     "almond": "~0.3.0",
-    "localforage": "~1.2.0",
-    "phaser": "~2.2.2"
+    "localforage": "~1.2.0"
   },
   "overrides": {
     "phaser": {

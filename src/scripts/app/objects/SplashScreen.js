@@ -7,9 +7,6 @@
  */
 
 
-import Phaser from 'Phaser';
-
-
 class SplashScreen extends Phaser.Group {
 
   constructor (game) {
