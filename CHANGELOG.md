@@ -2,6 +2,22 @@ Change Log
 ===============================================================================
 
 
+v0.2.0
+-------------------------------------------------------------------------------
+
+*   Upgraded Phaser to version 2.3.0.
+*   Phaser is now the first dependency declared in the `bower.json` manifest,
+    avoiding some issues with Almond and Phaser's P2 physics engine build
+    incompatibilities.
+*   Tasks and accompanying library asset are now encapsulated in a single
+    module structured under the `gulpfile.js` directory.
+*   Not relying on `gulp-plumber` to handle errors in tasks anymore.
+*   `run-sequence` was dropped, in favor of proper sequential task
+    dependencies (to be improved in a future Gulp 4.0 release).
+*   Spread the project configuration into CommonJS modules.
+*   Updated Favicons and related stuff.
+
+
 v0.1.9
 -------------------------------------------------------------------------------
 
