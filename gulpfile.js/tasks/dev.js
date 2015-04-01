@@ -26,9 +26,12 @@ module.exports = function (gulp, $, config) {
 
   // Compile template views into HTML files.
   gulp.task('dev:build:views', function () {
-    return gulp.src(globs['views'])
-      .pipe($.compileHandlebars(meta, {
-        batch: dirs['partials']
+    var viewsGlobs = globs['views'];
+
+    return gulp.src(viewsGlobs['templates'])
+      .pipe($.hb({
+        data    : viewsGlobs['data'],
+        partials: viewsGlobs['partials']
       }))
       .pipe($.rename({ extname: '.html' }))
       .pipe(gulp.dest(dirs['build']))
@@ -97,9 +100,9 @@ module.exports = function (gulp, $, config) {
     gulp.watch(globs['scripts'], [ 'dev:build:scripts' ])
       .on('change', forget('scripts'));
 
-    gulp.watch(globs['styles'], [ 'dev:build:styles' ]);
-    gulp.watch(globs['views'],  [  'dev:build:views' ]);
-    gulp.watch('bower.json',    [ 'dev:build:bundle' ]);
+    gulp.watch(globs['styles']            , [ 'dev:build:styles' ]);
+    gulp.watch(globs['views']['templates'], [  'dev:build:views' ]);
+    gulp.watch('bower.json'               , [ 'dev:build:bundle' ]);
   });
 
   // Pass through modified script files and issue warnings about
