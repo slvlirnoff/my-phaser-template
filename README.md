@@ -4,6 +4,9 @@ My Phaser Template
 >   A project template for [Phaser][phsr] games, featuring Babel and
 >   localForage.
 
+Notice: this project _may become_ a project scaffold of sorts… Or maybe not…
+I'll figure out… If you're interested, well, stay tuned…
+
 
 What's included?
 -------------------------------------------------------------------------------

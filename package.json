@@ -1,6 +1,6 @@
 {
   "name": "my-phaser-template",
-  "version": "0.1.9",
+  "version": "0.2.2",
   "private": true,
   "description": "A Phaser project template, featuring Babel and localForage.",
   "devDependencies": {
