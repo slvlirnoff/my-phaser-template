@@ -1,8 +1,4 @@
 module.exports = {
-  'dev:build:scripts': {
-    'modules': 'amd',
-    'moduleIds': true
-  },
   'dist:styles': {
     'keepSpecialComments': false,
     'removeEmpty': true

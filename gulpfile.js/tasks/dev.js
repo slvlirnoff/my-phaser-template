@@ -57,7 +57,7 @@ module.exports = function (gulp, $, config) {
     return gulp.src(globs['scripts'])
       .pipe($.cached('scripts'))
       .pipe($.sourcemaps.init())
-      .pipe($.babel(options['dev:build:scripts']))
+      .pipe($.babel())
       .on('error', handleErrors)
       .pipe($.remember('scripts'))
       .pipe($.concat('game.js'))

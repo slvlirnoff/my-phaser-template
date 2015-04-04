@@ -10,6 +10,7 @@ bower_components
 
 # Always include these files
 !.git*
+!.babelrc
 !.bowerrc
 !.jshintrc
 !.editorconfig
