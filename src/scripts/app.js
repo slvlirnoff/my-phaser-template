@@ -1,11 +1,18 @@
-// Import all declared states from this module into an object.
+/*
+ * The `app` module
+ * ============================================================================
+ *
+ * The module providing the main routine of the game application launch.
+ */
+
+// Import all declared states as an object.
 import * as states from './app/states';
 
 
 export default function () {
-  let game = new Phaser.Game(480, 720, Phaser.AUTO);
+  let game = new Phaser.Game(640, 480, Phaser.AUTO);
 
-  // Dynamically adding all required game states.
+  // Dynamically add all required game states.
   Object.keys(states)
     .map((key) => [ key, states[key] ])
     .forEach((args) => game.state.add(... args));

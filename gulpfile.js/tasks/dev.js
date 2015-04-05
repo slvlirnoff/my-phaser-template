@@ -8,10 +8,8 @@ module.exports = function (gulp, $, config) {
   var handleErrors   = require('../lib/handleErrors');
   var mainBowerFiles = require('main-bower-files');
 
-  var meta    = config.meta;
   var dirs    = config.dirs;
   var globs   = config.globs;
-  var options = config.pluginOptions;
 
   // Forget any cached data
   // Reference: https://github.com/gulpjs/gulp/blob/master/docs/recipes/incremental-builds-with-concatenate.md

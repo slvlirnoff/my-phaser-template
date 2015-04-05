@@ -1,10 +1,14 @@
-* {
-  &, &:before, &:after {
-    box-sizing: border-box;
-  }
+html {
+  box-sizing: border-box;
+}
 
+* {
   margin: 0;
   padding: 0;
+
+  &, &:before, &:after {
+    box-sizing: inherit;
+  }
 }
 
 html, body {
@@ -16,10 +20,6 @@ html, body {
 canvas {
   touch-action-delay: none;
   touch-action: none;
-
-  -ms-interpolation-mode: nearest-neighbor;
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: -moz-crisp-edges;
-  image-rendering: -o-crisp-edges;
   image-rendering: crisp-edges;
+  image-rendering: pixelated;
 }

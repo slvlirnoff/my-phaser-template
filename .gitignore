@@ -1,6 +1,5 @@
 .*
 *.log
-*.sw?
 Thumbs.db
 
 dist
@@ -8,7 +7,6 @@ build
 node_modules
 bower_components
 
-# Always include these files
 !.git*
 !.babelrc
 !.bowerrc
