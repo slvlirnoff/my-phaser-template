@@ -14,24 +14,8 @@ class SplashScreen extends Phaser.Group {
 
     this.classType = Phaser.Image;
 
-    this.addBackground();
-    this.addProgressBar();
-
-    this.progressFiller = this.addProgressFiller();
-  }
-
-  // --------------------------------------------------------------------------
-
-  addBackground () {
-    return this.create(0, 0, 'splash-screen');
-  }
-
-  addProgressBar () {
-    return this.create(64, 584, 'progress-bar', 0);
-  }
-
-  addProgressFiller () {
-    return this.create(64, 584, 'progress-bar', 1);
+    this.create(0, 0, 'splash-screen');
+    this.progressBar = this.create(82, 282, 'progress-bar');
   }
 
 }
