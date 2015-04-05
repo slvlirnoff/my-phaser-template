@@ -1,8 +1,7 @@
 My Phaser Template
 ===============================================================================
 
->   A project template for [Phaser][phsr] games, featuring Babel and
->   localForage.
+>   A project template for [Phaser][phsr] web games.
 
 Notice: this project _may become_ a project scaffold of sorts… Or maybe not…
 I'll figure out… If you're interested, well, stay tuned…
@@ -23,18 +22,11 @@ What's included?
 
 *   [Bower][bowr] for easy component management.
 
-*   [localForage][lofr] for client-side data storage, including a sample Phaser
-    wrapper plug-in.
-
 *   [Babel][babl] to translate from ES6 to ES5 syntax.
     See which [language features][feat] are currently supported.
 
 *   [Handlebars][hbs.] templates, [LESS][less] style sheets, support for source
     maps output, off-line cache and much more!
-
-
-This template includes a sample game, presenting some of the features you can
-already use.
 
 
 Development Instructions
@@ -55,6 +47,15 @@ npm run clean # Delete temporary and distribution build files.
 required to do so.</small>
 
 Happy coding!
+
+
+Sample Game
+-------------------------------------------------------------------------------
+
+To see a more elaborate sample game in action, extract the `sample-game.zip`
+file, included in this repository, from the project root. The only extra
+dependency is [localForage][lofr], so you'll need to run `bower install` to run
+the game without errors.
 
 
 License
