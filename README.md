@@ -3,8 +3,12 @@ My Phaser Template
 
 >   A project template for [Phaser][phsr] web games.
 
-Notice: this project _may become_ a project scaffold of sorts… Or maybe not…
-I'll figure out… If you're interested, well, stay tuned…
+**ANNOUNCEMENT**: I released [`slush-phaser-plus`][ssp+], a new project created
+based on this project template. Install it with npm (`npm install --global
+slush-phaser-plus`) and give it a try!
+
+Meanwhile, development of this project template will continue normally, as this
+is now the model project of that generator.
 
 
 What's included?
@@ -88,6 +92,7 @@ Some code borrowed from [gulp-starter][gsdt], by Daniel Tello.
 [lofr]: http://mozilla.github.io/localForage/
 [gsdt]: https://github.com/greypants/gulp-starter/
 [sspn]: https://github.com/Eruant/slush-phaser-node
+[ssp+]: https://github.com/rblopes/slush-phaser-plus
 [sspp]: https://github.com/pixelpicosean/slush-phaser-project
 [dwld]: https://github.com/rblopes/my-phaser-template/archive/master.zip
 [lcnc]: https://github.com/rblopes/my-phaser-template/blob/master/LICENSE
