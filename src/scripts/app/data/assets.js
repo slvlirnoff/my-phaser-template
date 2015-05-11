@@ -35,7 +35,12 @@ export default {
 
   // - Music and Sound effects ------------------------------------------------
   'audio': [
-    // ...
+    // // Example
+    // {
+    //   key: 'pow',
+    //   type: 'audio',
+    //   urls: [ 'pow.ogg', 'pow.m4a' ]
+    // }
   ]
 
 };
