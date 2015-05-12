@@ -1,10 +1,13 @@
 module.exports = {
-  'dist'    : 'dist',
-  'build'   : 'build',
-  'static'  : 'static',
-  'assets'  : 'static/assets',
-  'states'  : 'src/scripts/app/states',
-  'objects' : 'src/scripts/app/objects',
-  'plugins' : 'src/scripts/app/plugins',
-  'partials': 'src/views/partials'
+  'dist'   : 'dist',
+  'build'  : 'build',
+  'views'  : 'src/views',
+  'static' : 'static',
+  'styles' : 'src/styles',
+  'scripts': 'src/scripts',
+
+  // Required by `slush-phaser-plus` sub-generators.
+  get states  () { return this.scripts + '/app/states'  },
+  get objects () { return this.scripts + '/app/objects' },
+  get plugins () { return this.scripts + '/app/plugins' }
 };

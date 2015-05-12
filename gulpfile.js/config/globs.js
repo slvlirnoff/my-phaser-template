@@ -1,10 +1,14 @@
+var dirs = require('./dirs');
+
+
 module.exports = {
   'views': {
-    'data'     : 'src/views/data/*.json',
-    'partials' : 'src/views/partials/*.hbs',
-    'templates': 'src/views/templates/*.hbs'
+    get data      () { return dirs.views + '/data/*.json'     },
+    get partials  () { return dirs.views + '/partials/*.hbs'  },
+    get templates () { return dirs.views + '/templates/*.hbs' }
   },
-  'styles' : 'src/styles/*.less',
-  'assets' : 'static/**',
-  'scripts': 'src/scripts/**/*.js'
+
+  get styles  () { return dirs.styles  + '/*.less'  },
+  get assets  () { return dirs.static  + '/**'      },
+  get scripts () { return dirs.scripts + '/**/*.js' }
 };
