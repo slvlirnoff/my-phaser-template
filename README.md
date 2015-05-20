@@ -3,13 +3,6 @@ My Phaser Template
 
 >   A project template for [Phaser][phsr] web games.
 
-**ANNOUNCEMENT**: I released [`slush-phaser-plus`][ssp+], a new project created
-based on this project template. Install it with npm (`npm install --global
-slush-phaser-plus`) and give it a try!
-
-Meanwhile, development of this project template will continue normally, as this
-is now the model project of that generator.
-
 
 What's included?
 -------------------------------------------------------------------------------
@@ -60,6 +53,19 @@ To see a more elaborate sample game in action, extract the `sample-game.zip`
 file, included in this repository, from the project root. The only extra
 dependency is [localForage][lofr], so you'll need to run `bower install` to run
 the game without errors.
+
+
+[`slush-phaser-plus`][ssp+]
+-------------------------------------------------------------------------------
+
+Wanna try something different? `slush-phaser-plus` is an automated project
+generator based on this template. Check [the project page][ssp+] for more
+details, or just install it with npm (`npm install --global slush-phaser-plus`)
+and give it a shot!
+
+<em><small>
+(Meanwhile, development of this template will continue regularly.)
+</small></em>
 
 
 License
