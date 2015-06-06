@@ -1,22 +1,14 @@
 {
-  "camelcase": true,
   "curly": true,
   "eqeqeq": true,
   "freeze": true,
   "funcscope": true,
-  "indent": 2,
   "lastsemic": true,
   "latedef": true,
-  "laxcomma": false,
-  "newcap": false,
   "noarg": true,
   "node": true,
   "nonew": true,
-  "quotmark": "single",
   "strict": true,
-  "sub": true,
-  "trailing": true,
   "undef": true,
-  "unused": true,
-  "white": true
+  "unused": true
 }
