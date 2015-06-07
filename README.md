@@ -15,7 +15,7 @@ What's included?
     collaborators — check if EditorConfig support is available for your code
     editor.
 
-*   [JSHint][jsht] for code quality check.
+*   [ESLint][eslt] for code quality check.
 
 *   [Bower][bowr] for easy component management.
 
@@ -86,8 +86,8 @@ Some code borrowed from [gulp-starter][gsdt], by Daniel Tello.
 [bowr]: http://bower.io/
 [phsr]: http://phaser.io/
 [babl]: https://babeljs.io/
+[eslt]: http://eslint.org/
 [gulp]: http://gulpjs.com/
-[jsht]: http://jshint.com/
 [less]: http://lesscss.org/
 [edcf]: http://editorconfig.org/
 [hbs.]: http://handlebarsjs.com/
