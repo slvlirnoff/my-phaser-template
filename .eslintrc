@@ -1,0 +1,20 @@
+parser: babel-eslint
+
+settings:
+  ecmascript: 6
+
+env:
+  browser: true
+
+globals:
+  PIXI: false
+  Phaser: false
+
+ecmaFeatures:
+  modules: true
+
+rules:
+  indent: [ 1, 2 ]                # Indent with 2 spaces.
+  quotes: [ 1, single ]           # Favor single quotes for strings.
+  linebreak-style: [ 1, unix ]    # Favor Unix-style line endings.
+  semi: [ 1, always ]             # Always end statements in semicolons.

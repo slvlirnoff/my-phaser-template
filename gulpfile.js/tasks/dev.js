@@ -112,9 +112,9 @@ module.exports = function (gulp, $, config) {
   // non-conformances.
   gulp.task('dev:lint', function () {
     return gulp.src([ globs.scripts ])
-      .pipe($.cached('jshint'))
-      .pipe($.jshint('.jshintrc'))
-      .pipe($.jshint.reporter('jshint-stylish'));
+      .pipe($.cached('dev:lint'))
+      .pipe($.eslint())
+      .pipe($.eslint.format('stylish', process.stderr));
   });
 
   // The overall build task.
