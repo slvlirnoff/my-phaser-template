@@ -13,8 +13,8 @@ module.exports = function (gulp, $, config) {
   var handleErrors   = require('../lib/handleErrors');
   var mainBowerFiles = require('main-bower-files');
 
-  var dirs    = config.dirs;
-  var globs   = config.globs;
+  var dirs  = config.dirs;
+  var globs = config.globs;
 
   // Forget any cached data
   // Reference: https://github.com/gulpjs/gulp/blob/master/docs/recipes/incremental-builds-with-concatenate.md
@@ -33,7 +33,7 @@ module.exports = function (gulp, $, config) {
 
     return gulp.src(viewsGlobs.templates)
       .pipe($.hb({
-        data    : viewsGlobs.data,
+        data: viewsGlobs.data,
         partials: viewsGlobs.partials
       }))
       .pipe($.rename({ extname: '.html' }))
@@ -103,9 +103,9 @@ module.exports = function (gulp, $, config) {
     gulp.watch(globs.scripts, [ 'dev:build:scripts' ])
       .on('change', forget('scripts'));
 
-    gulp.watch(globs.styles         , [ 'dev:build:styles' ]);
+    gulp.watch(globs.styles, [ 'dev:build:styles' ]);
     gulp.watch(globs.views.templates, [  'dev:build:views' ]);
-    gulp.watch('bower.json'         , [ 'dev:build:bundle' ]);
+    gulp.watch('bower.json', [ 'dev:build:bundle' ]);
   });
 
   // Pass through modified script files and issue warnings about
