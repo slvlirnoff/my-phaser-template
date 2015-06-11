@@ -46,15 +46,6 @@ required to do so.</small>
 Happy coding!
 
 
-Sample Game
--------------------------------------------------------------------------------
-
-To see a more elaborate sample game in action, extract the `sample-game.zip`
-file, included in this repository, from the project root. The only extra
-dependency is [localForage][lofr], so you'll need to run `bower install` to run
-the game without errors.
-
-
 [`slush-phaser-plus`][ssp+]
 -------------------------------------------------------------------------------
 
