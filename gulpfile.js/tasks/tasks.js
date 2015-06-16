@@ -10,7 +10,10 @@ module.exports = function (gulp, $) {
 
   gulp.task('tasks:lint', function () {
     gulp.src('gulpfile.js/**/*.js')
-      .pipe($.eslint({ configFile: 'gulpfile.js/.eslintrc' }))
+      .pipe($.eslint({
+        useEslintrc: false,
+        configFile: 'gulpfile.js/.eslintrc'
+      }))
       .pipe($.eslint.format('stylish', process.stderr));
   });
 
