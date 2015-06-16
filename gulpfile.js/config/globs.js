@@ -19,7 +19,7 @@ module.exports = {
   // and description. Then, there are partials, which are smaller and reusable
   // chunks of HTML markup. Lastly, the main templates, that join the former
   // pieces together to compose fully featured HTML documents.
-  'views': {
+  views: {
     get data () { return dirs.views + '/data/*.json'; },
     get partials () { return dirs.views + '/partials/*.hbs'; },
     get templates () { return dirs.views + '/templates/*.hbs'; }
