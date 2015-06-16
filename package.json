@@ -14,7 +14,7 @@
     "gulp-babel": "^5.0.0",
     "gulp-cached": "^1.0.1",
     "gulp-concat": "^2.3.4",
-    "gulp-eslint": "^0.13.2",
+    "gulp-eslint": "^0.14.0",
     "gulp-filter": "^2.0.2",
     "gulp-hb": "^2.1.1",
     "gulp-less": "^3.0.0",
