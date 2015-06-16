@@ -48,7 +48,8 @@ module.exports = function (gulp, $, config) {
         .pipe($.uglify())
         .pipe($.sourcemaps.write('.'))
         .pipe(gulp.dest(dirs.dist));
-  });
+    }
+  );
 
   // Copy all dependent application assets into the final build directory.
   gulp.task('dist:assets', function () {
