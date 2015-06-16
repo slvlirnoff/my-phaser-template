@@ -8,6 +8,8 @@
 
 module.exports = function (gulp, $, config) {
 
+  var buffer         = require('vinyl-buffer');
+  var source         = require('vinyl-source-stream');
   var browserSync    = require('browser-sync').create();
   var autoprefixer   = require('autoprefixer-core');
   var handleErrors   = require('../lib/handleErrors');
@@ -15,6 +17,12 @@ module.exports = function (gulp, $, config) {
 
   var dirs  = config.dirs;
   var globs = config.globs;
+
+  // Check if we are in live development mode.
+  var isWatching = false;
+
+  // Prepare the application bundler.
+  var bundler = require('../lib/bundler')(config.bundle);
 
   // Forget any cached data
   // Reference: https://github.com/gulpjs/gulp/blob/master/docs/recipes/incremental-builds-with-concatenate.md
@@ -57,13 +65,13 @@ module.exports = function (gulp, $, config) {
 
   // Compile script files as AMD, bundle them as a single file.
   gulp.task('dev:build:scripts', [ 'dev:lint' ], function () {
-    return gulp.src(globs.scripts)
-      .pipe($.cached('scripts'))
-      .pipe($.sourcemaps.init())
-      .pipe($.babel())
+    return bundler(isWatching)
+      .transform(require('babelify'))
+      .bundle()
       .on('error', handleErrors)
-      .pipe($.remember('scripts'))
-      .pipe($.concat('game.js'))
+      .pipe(source('game.js'))
+      .pipe(buffer())
+      .pipe($.sourcemaps.init({ loadMaps: true }))
       .pipe($.sourcemaps.write('.'))
       .pipe(gulp.dest(dirs.build))
       .pipe(browserSync.stream());
@@ -71,10 +79,7 @@ module.exports = function (gulp, $, config) {
 
   // Concatenates Bower script libraries in a single file.
   gulp.task('dev:build:bundle', function () {
-    var libs = [ 'node_modules/babel-core/browser-polyfill.js' ]
-      .concat(mainBowerFiles());
-
-    return gulp.src(libs)
+    return gulp.src(mainBowerFiles())
       .pipe($.filter('**/*.js'))
       .pipe($.sourcemaps.init({ loadMaps: true }))
       .pipe($.concat('bundle.js'))
@@ -100,6 +105,8 @@ module.exports = function (gulp, $, config) {
 
   // Monitors files for changes, trigger rebuilds as needed.
   gulp.task('dev:watch', function () {
+    isWatching = true;
+
     gulp.watch(globs.scripts, [ 'dev:build:scripts' ])
       .on('change', forget('scripts'));
 
