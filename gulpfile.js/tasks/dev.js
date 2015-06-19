@@ -8,6 +8,7 @@
 
 module.exports = function (gulp, $, config) {
 
+  var webpackStream  = require('webpack-stream');
   var browserSync    = require('browser-sync').create();
   var autoprefixer   = require('autoprefixer-core');
   var handleErrors   = require('../lib/handleErrors');
@@ -15,17 +16,6 @@ module.exports = function (gulp, $, config) {
 
   var dirs  = config.dirs;
   var globs = config.globs;
-
-  // Forget any cached data
-  // Reference: https://github.com/gulpjs/gulp/blob/master/docs/recipes/incremental-builds-with-concatenate.md
-  function forget (cacheName) {
-    return function (e) {
-      if (e.type === 'deleted') {
-        $.remember.forget(cacheName, e.path);
-        delete $.cached.caches[cacheName][e.path];
-      }
-    };
-  }
 
   // Compile template views into HTML files.
   gulp.task('dev:build:views', function () {
@@ -57,24 +47,16 @@ module.exports = function (gulp, $, config) {
 
   // Compile script files as AMD, bundle them as a single file.
   gulp.task('dev:build:scripts', [ 'dev:lint' ], function () {
-    return gulp.src(globs.scripts)
-      .pipe($.cached('scripts'))
-      .pipe($.sourcemaps.init())
-      .pipe($.babel())
+    return gulp.src(globs.entryPoint)
+      .pipe(webpackStream(config.webpack))
       .on('error', handleErrors)
-      .pipe($.remember('scripts'))
-      .pipe($.concat('game.js'))
-      .pipe($.sourcemaps.write('.'))
       .pipe(gulp.dest(dirs.build))
       .pipe(browserSync.stream());
   });
 
   // Concatenates Bower script libraries in a single file.
   gulp.task('dev:build:bundle', function () {
-    var libs = [ 'node_modules/babel-core/browser-polyfill.js' ]
-      .concat(mainBowerFiles());
-
-    return gulp.src(libs)
+    return gulp.src(mainBowerFiles())
       .pipe($.filter('**/*.js'))
       .pipe($.sourcemaps.init({ loadMaps: true }))
       .pipe($.concat('bundle.js'))
@@ -100,11 +82,9 @@ module.exports = function (gulp, $, config) {
 
   // Monitors files for changes, trigger rebuilds as needed.
   gulp.task('dev:watch', function () {
-    gulp.watch(globs.scripts, [ 'dev:build:scripts' ])
-      .on('change', forget('scripts'));
-
+    gulp.watch(globs.scripts, [ 'dev:build:scripts' ]);
     gulp.watch(globs.styles, [ 'dev:build:styles' ]);
-    gulp.watch(globs.views.templates, [  'dev:build:views' ]);
+    gulp.watch(globs.views.templates, [ 'dev:build:views' ]);
     gulp.watch('bower.json', [ 'dev:build:bundle' ]);
   });
 
