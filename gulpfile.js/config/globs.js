@@ -31,6 +31,9 @@ module.exports = {
   // Finds this project static assets to be copied for distribution.
   get assets () { return dirs.static  + '/**'; },
 
-  // Finds the scripts to be compiled.
-  get scripts () { return dirs.scripts + '/**/*.js'; }
+  // Script files to observe changes.
+  get scripts () { return dirs.scripts + '/**/*.js'; },
+
+  // The main application entry point.
+  get entryPoint () { return './' + dirs.scripts + '/app.js'; }
 };
